@@ -647,216 +647,7 @@ const RECIPES_DB = {
   }
 };
 
-// 2. EXTENDED DETAILED NIGERIAN RECIPES FOR KEYLESS LOCAL SEARCH
-const NIGERIAN_EXT_DB = {
-  "egusi": {
-    id: "egusi",
-    title: "Rich Egusi Soup",
-    description: "A beloved classic West African soup made with ground melon seeds (egusi), palm oil, leafy green vegetables, and loaded with assorted healthy meats.",
-    prepTime: "20 mins",
-    cookTime: "35 mins",
-    totalTime: "55 mins",
-    serves: "feeds 4",
-    diet: "Keto Friendly, Gluten-Free",
-    badge: "Traditional Soup",
-    image: "Assets/stew.jpg",
-    ingredients: {
-      "Egusi Paste": [
-        "2 cups ground egusi (melon seeds)",
-        "1 small onion, blended",
-        "1/2 cup warm water (to make a paste)"
-      ],
-      "Base Stew & Greens": [
-        "1/3 cup palm oil",
-        "2 cups blanched ugwu (pumpkin leaves) or spinach, chopped",
-        "3 red bell peppers & 2 scotch bonnets, blended",
-        "2 tbsp fermented locust beans (Iru)",
-        "3 tbsp ground crayfish"
-      ],
-      "Proteins": [
-        "500g beef, shaki (tripe), and ponmo, cooked",
-        "1 smoked fish, cleaned and deboned"
-      ],
-      "Utensils You'll Need": [
-        "Deep cooking pot",
-        "Mixing spoon",
-        "Food blender"
-      ]
-    },
-    instructions: [
-      {
-        step: 1,
-        title: "Make Egusi Paste",
-        instruction: "Mix the ground melon seeds with blended onions and warm water in a bowl to form a thick, smooth paste. Set aside.",
-        note: "Whisking the paste helps make the egusi lumps firmer when cooking."
-      },
-      {
-        step: 2,
-        title: "Fry the Base",
-        instruction: "Heat palm oil in a pot, sauté chopped onions and locust beans (iru) until fragrant. Pour in the blended peppers and cook for 10 minutes until the oil rises.",
-        note: "Keep the heat medium so the oil doesn't burn."
-      },
-      {
-        step: 3,
-        title: "Add Egusi & Simmer",
-        instruction: "Scoop the egusi paste in small balls into the frying pepper base. Do not stir. Cover the pot and simmer on low heat for 10-15 minutes until the egusi balls firm up.",
-        note: "This creates the beautiful texture of egusi lumps in your soup!"
-      },
-      {
-        step: 4,
-        title: "Combine & Add Greens",
-        instruction: "Gently stir the soup, add your cooked meats, smoked fish, crayfish, and seasoning cubes. Simmer for another 5 minutes, then add the chopped greens. Cook for 2 minutes and turn off the heat.",
-        note: "Serve alongside pounded yam or fufu."
-      }
-    ]
-  },
-  "fufu": {
-    id: "fufu",
-    title: "Stretchy Cassava Fufu",
-    description: "Classic West African swallow made from fermented cassava starch, cooked and pounded into a perfectly smooth, stretchy ball.",
-    prepTime: "10 mins",
-    cookTime: "20 mins",
-    totalTime: "30 mins",
-    serves: "feeds 3",
-    diet: "Vegan, Gluten-Free",
-    badge: "Core Swallow",
-    image: "Assets/efo.png",
-    ingredients: {
-      "Ingredients": [
-        "2 cups of fresh wet fufu paste (or high-quality fufu flour)",
-        "3 cups water"
-      ],
-      "Utensils You'll Need": [
-        "Non-stick pot",
-        "Heavy wooden spatula (turning stick)",
-        "Plastic wrap"
-      ]
-    },
-    instructions: [
-      {
-        step: 1,
-        title: "Dissolve and Stir",
-        instruction: "Place the fufu paste in a pot, add water, and stir thoroughly with your fingers to break up any lumps until it forms a smooth, milk-like slurry.",
-        note: "For fufu flour, use a 1:1.5 ratio of flour to water."
-      },
-      {
-        step: 2,
-        title: "Cook on Heat",
-        instruction: "Place the pot on medium-low heat. Stir continuously in one direction with your wooden spatula. The mixture will start to thicken and form translucent grey lumps.",
-        note: "Stirring constantly is critical to prevent lumps and scorching."
-      },
-      {
-        step: 3,
-        title: "Pound & Smooth",
-        instruction: "As it becomes thick and dough-like, press and gather the mixture against the sides of the pot vigorously. Splash 2 tablespoons of hot water, cover, and steam on low for 5 minutes. Stir one final time until completely smooth, stretchy, and white.",
-        note: "Fufu is ready when the raw, sour smell is replaced by a cooked, mild scent."
-      }
-    ]
-  },
-  "amala": {
-    id: "amala",
-    title: "Yoruba Amala & Ewedu",
-    description: "Dark, fluffy yam flour swallow (Amala Dudu) served alongside slippery, nutrient-packed jute leaf soup (Ewedu) and savory Buka stew.",
-    prepTime: "15 mins",
-    cookTime: "20 mins",
-    totalTime: "35 mins",
-    serves: "feeds 2",
-    diet: "Traditional Swallow",
-    badge: "Yoruba Legend",
-    image: "Assets/stew.jpg",
-    ingredients: {
-      "Amala Swallow": [
-        "2 cups Elubo (yam flour)",
-        "4 cups water"
-      ],
-      "Ewedu Soup": [
-        "2 cups fresh Ewedu leaves (jute leaves)",
-        "1 tsp fermented locust beans (Iru)",
-        "1/2 tsp ground crayfish",
-        "A pinch of kaun (potash) or baking soda"
-      ],
-      "Utensils You'll Need": [
-        "Amala pot",
-        "Wooden turning stick (Orogbo)",
-        "Ewedu broom (Ijabe) or blender"
-      ]
-    },
-    instructions: [
-      {
-        step: 1,
-        title: "Boil Water for Amala",
-        instruction: "Bring 4 cups of water to a rolling boil in a pot. Turn off the heat or reduce to absolute low.",
-        note: "Always use clean, boiling hot water for smooth Elubo."
-      },
-      {
-        step: 2,
-        title: "Stir in Elubo",
-        instruction: "Gradually pour the Elubo flour into the hot water while stirring vigorously with the turning stick. Keep beating the dough against the pot to remove lumps until it is stretchy and smooth.",
-        note: "Add a splash of hot water, cover, and steam for 3 minutes on low heat to cook thoroughly."
-      },
-      {
-        step: 3,
-        title: "Cook the Ewedu",
-        instruction: "Boil the Ewedu leaves with a pinch of potash and iru in 1 cup of water for 5 minutes. Blend briefly or use the traditional Ijabe broom to chop it into a slimy puree. Stir in crayfish and salt.",
-        note: "Do not cover the pot while cooking Ewedu, or it will lose its green color."
-      }
-    ]
-  },
-  "chin-chin": {
-    id: "chin-chin",
-    title: "Crunchy Chin Chin",
-    description: "A popular fried pastry snack from Nigeria, cut into small cubes, infused with milk and nutmeg, fried to a golden crunch.",
-    prepTime: "25 mins",
-    cookTime: "15 mins",
-    totalTime: "40 mins",
-    serves: "feeds 10",
-    diet: "Vegetarian Snack",
-    badge: "Celebration Crunchy",
-    image: "Assets/image-4.png",
-    ingredients: {
-      "Pastry Dough": [
-        "3 cups all-purpose flour",
-        "1/2 cup sugar",
-        "1/2 tsp ground nutmeg",
-        "1/2 cup butter, cold and cubed",
-        "1 egg",
-        "1/2 cup liquid milk",
-        "1/2 tsp baking powder"
-      ],
-      "Frying": [
-        "4 cups vegetable oil for deep frying"
-      ],
-      "Utensils You'll Need": [
-        "Mixing bowl",
-        "Rolling pin",
-        "Pastry cutter or knife",
-        "Frying pan"
-      ]
-    },
-    instructions: [
-      {
-        step: 1,
-        title: "Mix the Dough",
-        instruction: "Whisk flour, sugar, baking powder, and nutmeg. Rub in cold butter cubes until it resembles breadcrumbs. Whisk egg and milk together, pour into the flour, and knead into a stiff, smooth dough.",
-        note: "If the dough is too sticky, dust with a little flour."
-      },
-      {
-        step: 2,
-        title: "Roll and Cut",
-        instruction: "Roll the dough flat to a thickness of about 1/4 inch. Use a knife or pastry wheel to cut into tiny 1/2-inch squares.",
-        note: "Lightly dust the cut pieces with flour so they don't stick to each other before frying."
-      },
-      {
-        step: 3,
-        title: "Deep Fry",
-        instruction: "Deep fry in batches in hot vegetable oil on medium heat, stirring constantly with a slotted spoon, until even golden brown (approx 5-7 minutes).",
-        note: "Drain thoroughly on paper towels. They will become crunchier as they cool!"
-      }
-    ]
-  }
-};
-
-// 3. DOM EVENT CONTROLLER
+// 2. DOM EVENT CONTROLLER
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize Feather Icons
   if (typeof feather !== 'undefined') {
@@ -952,7 +743,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showView("detail");
       
       if (recipeId === "search") {
-        // Active search state
         const lastSearch = localStorage.getItem("last_searched_recipe");
         if (lastSearch) {
           const parsed = JSON.parse(lastSearch);
@@ -995,7 +785,6 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (recipe.image && (recipe.image.startsWith("http") || recipe.image.startsWith("data:"))) {
         imgElement.src = recipe.image;
       } else {
-        // Fallback to stock search based on title or suggest keywords
         imgElement.src = `https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&auto=format&fit=crop&q=60`;
       }
       imgElement.alt = recipe.title;
@@ -1118,7 +907,7 @@ document.addEventListener("DOMContentLoaded", () => {
   bindCardClicks();
 
   // ==========================================================================
-  // MULTI-SOURCE SEARCH CONTROLLER (Keyless Web Search by Default)
+  // HYBRID SEARCH EXPERIENCE (Claude Web Search + TheMealDB + Local Generator)
   // ==========================================================================
   const searchInput = document.querySelector(".recipe-search-input");
   const searchIconBtn = document.querySelector(".recipe-search-icon");
@@ -1127,274 +916,363 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!query || query.trim() === "") return;
     
     localStorage.removeItem("last_searched_recipe");
-    const cleanQuery = query.toLowerCase().trim();
 
-    // Switch view to Detail page and show loading
+    // Route to search detail view immediately to show loading
     window.location.hash = `#/recipe/search`;
     document.getElementById("recipe-loading").style.display = "flex";
     document.getElementById("recipe-detail-content").style.display = "none";
-    document.getElementById("loading-text").textContent = `Searching for real "${query}" recipe data...`;
+    document.getElementById("loading-text").textContent = `Searching the web for real "${query}" recipe data...`;
 
-    // 1. Check local DB first (fuzzy matching)
-    const matchedId = Object.keys(RECIPES_DB).find(key => 
-      key === cleanQuery || cleanQuery.includes(key) || 
-      RECIPES_DB[key].title.toLowerCase().includes(cleanQuery)
-    );
+    // 1. Try to check if we can query the Anthropic Claude API (using Dev key in env or user key in storage)
+    // Vite loads env variables with VITE_ prefix.
+    const devApiKey = import.meta.env?.VITE_ANTHROPIC_API_KEY || "";
+    const userApiKey = localStorage.getItem("anthropic_api_key") || "";
+    const apiKey = userApiKey || devApiKey;
 
-    if (matchedId) {
-      setTimeout(() => {
-        renderRecipeDetail(RECIPES_DB[matchedId]);
-        document.getElementById("recipe-loading").style.display = "none";
-        document.getElementById("recipe-detail-content").style.display = "block";
-      }, 600);
-      return;
+    if (apiKey) {
+      try {
+        const response = await fetch("/api/anthropic/v1/messages", {
+          method: "POST",
+          headers: {
+            "x-api-key": apiKey,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+            "anthropic-dangerous-direct-browser-access": "true"
+          },
+          body: JSON.stringify({
+            model: "claude-3-5-sonnet-20241022",
+            max_tokens: 3000,
+            messages: [
+              {
+                role: "user",
+                content: `Search the web for a traditional, real recipe for "${query}". You must use the web search tool to get authentic ingredients, measurements, and cooking instructions.
+
+Return your response ONLY as a raw, valid JSON object matching the following structure. Do not wrap in markdown blocks, explanations, or backticks:
+
+{
+  "title": "Recipe Title",
+  "description": "Short appetizing description",
+  "prepTime": "Prep time e.g. 15 mins",
+  "cookTime": "Cook time e.g. 30 mins",
+  "totalTime": "Total time e.g. 45 mins",
+  "serves": "feeds X",
+  "diet": "Diet classification",
+  "badge": "Short badge text e.g. Spicy",
+  "image": "Suggest search keyword e.g. soup",
+  "ingredients": {
+    "Ingredients Group 1": ["1 cup ingredient 1", "2 tbsp ingredient 2"],
+    "Ingredients Group 2": ["3 units ingredient 3"],
+    "Utensils You'll Need": ["Pot", "Spoon"]
+  },
+  "instructions": [
+    {
+      "step": 1,
+      "title": "Step 1 title",
+      "instruction": "Step 1 instruction description",
+      "note": "Optional helper tip"
+    }
+  ]
+}`
+              }
+            ],
+            tools: [
+              {
+                type: "web_search_20260209",
+                name: "web_search"
+              }
+            ]
+          })
+        });
+
+        if (response.ok) {
+          const responseData = await response.json();
+          let text = responseData.content[0].text;
+          
+          if (text.includes("```json")) {
+            text = text.substring(text.indexOf("```json") + 7);
+            text = text.substring(0, text.lastIndexOf("```"));
+          } else if (text.includes("```")) {
+            text = text.substring(text.indexOf("```") + 3);
+            text = text.substring(0, text.lastIndexOf("```"));
+          }
+
+          const recipe = JSON.parse(text.trim());
+          localStorage.setItem("last_searched_recipe", JSON.stringify(recipe));
+          renderRecipeDetail(recipe);
+          document.getElementById("recipe-loading").style.display = "none";
+          document.getElementById("recipe-detail-content").style.display = "block";
+          return;
+        }
+      } catch (err) {
+        console.warn("Claude Search failed, falling back to keyless search...", err);
+      }
     }
 
-    // 2. Check extended local Nigerian database
-    const matchedExtKey = Object.keys(NIGERIAN_EXT_DB).find(key => 
-      key === cleanQuery || cleanQuery.includes(key) || 
-      NIGERIAN_EXT_DB[key].title.toLowerCase().includes(cleanQuery)
-    );
-
-    if (matchedExtKey) {
-      setTimeout(() => {
-        const recipe = NIGERIAN_EXT_DB[matchedExtKey];
-        localStorage.setItem("last_searched_recipe", JSON.stringify(recipe));
-        renderRecipeDetail(recipe);
-        document.getElementById("recipe-loading").style.display = "none";
-        document.getElementById("recipe-detail-content").style.display = "block";
-      }, 700);
-      return;
-    }
-
-    // 3. Fallback to TheMealDB (Free Keyless Global Recipe Database)
+    // 2. Fallback to TheMealDB (Free Keyless International API)
     try {
-      const mealDbRes = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
-      const data = await mealDbRes.json();
-      if (data.meals && data.meals.length > 0) {
-        const meal = data.meals[0];
-        const parsedRecipe = parseMealDbRecipe(meal);
-        localStorage.setItem("last_searched_recipe", JSON.stringify(parsedRecipe));
-        renderRecipeDetail(parsedRecipe);
-        
-        document.getElementById("recipe-loading").style.display = "none";
-        document.getElementById("recipe-detail-content").style.display = "block";
-        return;
+      const mealDbResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
+      if (mealDbResponse.ok) {
+        const mealDbData = await mealDbResponse.json();
+        if (mealDbData.meals && mealDbData.meals.length > 0) {
+          const parsedRecipe = parseMealDBRecipe(mealDbData.meals[0]);
+          localStorage.setItem("last_searched_recipe", JSON.stringify(parsedRecipe));
+          renderRecipeDetail(parsedRecipe);
+          document.getElementById("recipe-loading").style.display = "none";
+          document.getElementById("recipe-detail-content").style.display = "block";
+          return;
+        }
       }
     } catch (err) {
-      console.warn("TheMealDB failed:", err);
+      console.warn("TheMealDB lookup failed:", err);
     }
 
-    // 4. Fallback to Wikipedia API to get real descriptions & images, then generate a detailed recipe
-    try {
-      const wikiRes = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`);
-      if (wikiRes.ok) {
-        const wikiData = await wikiRes.json();
-        const generatedRecipe = generateRecipeFromWiki(query, wikiData);
-        localStorage.setItem("last_searched_recipe", JSON.stringify(generatedRecipe));
-        renderRecipeDetail(generatedRecipe);
-        
-        document.getElementById("recipe-loading").style.display = "none";
-        document.getElementById("recipe-detail-content").style.display = "block";
-        return;
-      }
-    } catch (err) {
-      console.warn("Wikipedia failed:", err);
-    }
-
-    // 5. Final fallback (smart mock generator)
+    // 3. Ultimate Fallback: Smart Heuristics local recipe generator
     setTimeout(() => {
-      const fallbackRecipe = generateLocalMockRecipe(query);
-      localStorage.setItem("last_searched_recipe", JSON.stringify(fallbackRecipe));
-      renderRecipeDetail(fallbackRecipe);
+      const generatedRecipe = generateLocalHeuristicRecipe(query);
+      localStorage.setItem("last_searched_recipe", JSON.stringify(generatedRecipe));
+      renderRecipeDetail(generatedRecipe);
       
       document.getElementById("recipe-loading").style.display = "none";
       document.getElementById("recipe-detail-content").style.display = "block";
-    }, 1000);
+    }, 1200);
   };
 
-  // Helper: Parse TheMealDB meal to Nourir layout
-  function parseMealDbRecipe(meal) {
-    const ingredientsList = [];
+  // Converts TheMealDB's flat structure into Nourir's detailed layout
+  function parseMealDBRecipe(meal) {
+    const ingredients = {
+      "Ingredients Required": [],
+      "Utensils You'll Need": ["Cooking Pot", "Stirring Spoon", "Measuring Cup / Scale"]
+    };
+    
     for (let i = 1; i <= 20; i++) {
       const ing = meal[`strIngredient${i}`];
       const meas = meal[`strMeasure${i}`];
       if (ing && ing.trim() !== "") {
-        ingredientsList.push(`${meas ? meas.trim() + " " : ""}${ing.trim()}`);
+        ingredients["Ingredients Required"].push(`${meas ? meas.trim() + ' ' : ''}${ing.trim()}`);
       }
     }
 
-    // Split instructions
-    const rawSteps = meal.strInstructions.split(/\r?\n/).filter(line => line.trim().length > 5);
-    const instructions = rawSteps.map((stepText, idx) => {
-      const cleanText = stepText.replace(/^\d+[\.\s\-]+/, '').trim();
+    const stepsText = meal.strInstructions.split(/\r?\n/).filter(line => line.trim() !== "");
+    const instructions = stepsText.map((text, idx) => {
+      const cleanText = text.replace(/^\d+[\.\-\)]\s*/, ""); // strip prepended numbers
       return {
         step: idx + 1,
-        title: cleanText.split(/[,\.]/)[0].substring(0, 30) || "Preparation",
+        title: cleanText.split(" ").slice(0, 3).join(" ") + "...",
         instruction: cleanText,
         note: ""
       };
     });
 
     return {
-      id: meal.idMeal,
       title: meal.strMeal,
-      description: `A delicious traditional dish classified under ${meal.strCategory || "International"} cuisine. Sourced from the global culinary index.`,
+      description: `A delicious traditional recipe for ${meal.strMeal} sourced directly from TheMealDB database.`,
       prepTime: "15 mins",
       cookTime: "30 mins",
       totalTime: "45 mins",
       serves: "feeds 4",
-      diet: meal.strCategory || "International Meal",
-      badge: meal.strArea || "World Recipe",
+      diet: meal.strCategory || "Traditional",
+      badge: meal.strArea || "International",
       image: meal.strMealThumb,
-      ingredients: {
-        "Recipe Ingredients": ingredientsList,
-        "Utensils You'll Need": ["Cooking pot", "Stirring spoon", "Chef Knife"]
-      },
-      instructions: instructions.length > 0 ? instructions : [
-        {
-          step: 1,
-          title: "Cooking",
-          instruction: meal.strInstructions
-        }
-      ]
+      ingredients,
+      instructions
     };
   }
 
-  // Helper: Parse Wikipedia article data to Nourir recipe details
-  function generateRecipeFromWiki(query, wikiData) {
-    const title = wikiData.title || query;
-    const desc = wikiData.extract || `A customized recipe for preparing delicious ${query}.`;
-    const image = (wikiData.originalimage && wikiData.originalimage.source) || `https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&auto=format&fit=crop&q=60`;
+  // Smart Heuristics Local Generator (Returns culturally plausible recipes)
+  function generateLocalHeuristicRecipe(query) {
+    const q = query.toLowerCase();
     
-    return {
-      id: "wiki-recipe",
-      title: title,
-      description: desc,
-      prepTime: "15 mins",
-      cookTime: "35 mins",
-      totalTime: "50 mins",
-      serves: "feeds 4",
-      diet: "Nutritional",
-      badge: "Wikipedia Sourced",
-      image: image,
-      ingredients: {
-        "Required Ingredients": [
-          `Main elements of ${title}`,
-          "Sliced red onion",
-          "2 bell peppers",
-          "Scotch bonnet pepper",
-          "Salt and seasoning powder"
-        ],
-        "Pantry & Oil": [
-          "2 tbsp vegetable oil or olive oil",
-          "Water as required",
-          "Fresh herbs for garnishing"
-        ],
-        "Utensils You'll Need": [
-          "Skillet or cooking pot",
-          "Prep knife",
-          "Serving plates"
-        ]
-      },
-      instructions: [
+    // Default values
+    let title = query.charAt(0).toUpperCase() + query.slice(1);
+    let description = `A healthy, modern fit-fam adaptation of the beloved classic ${query}. Perfect for nutritious eating.`;
+    let diet = "Naija Fit-Fam";
+    let badge = "Healthy Choice";
+    let prepTime = "15 mins";
+    let cookTime = "30 mins";
+    let totalTime = "45 mins";
+    let serves = "feeds 4";
+    let img = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&auto=format&fit=crop&q=60";
+    
+    let ingredients = {
+      "Main Ingredients": [],
+      "Healthy Accents": [],
+      "Utensils You'll Need": ["Cooking pot", "Kitchen knife", "Cutting board", "Stirring spoon"]
+    };
+    
+    let instructions = [];
+
+    if (q.includes("jollof") || q.includes("rice")) {
+      title = q.includes("jollof") ? "Healthy Smoky Jollof Rice" : title;
+      description = "Classic West African rice dish made with brown or long-grain parboiled rice, cooked in a flavorful tomato and red bell pepper sauce.";
+      diet = "Gluten-Free, Vegetarian Option";
+      badge = "Naija Staple";
+      img = "Assets/jollof.png";
+      ingredients["Main Ingredients"] = [
+        "2 cups long-grain parboiled rice (or brown rice for extra fiber)",
+        "4 large fresh tomatoes",
+        "2 red bell peppers (Tatashe)",
+        "1 scotch bonnet pepper (Ata Rodo)",
+        "1 large red onion, chopped"
+      ];
+      ingredients["Healthy Accents"] = [
+        "2 tbsp olive oil",
+        "2 bay leaves",
+        "1 tsp curry powder",
+        "1 tsp dried thyme",
+        "2 cups low-sodium vegetable or chicken stock",
+        "Salt to taste"
+      ];
+      instructions = [
         {
           step: 1,
-          title: "Preparation",
-          instruction: `Prepare and wash all raw ingredients. Thinly slice the onions, chop the peppers, and portion out elements for the ${title}.`,
-          note: "Having everything chopped beforehand ensures a smooth cooking process."
+          title: "Blend and Reduce the Pepper Base",
+          instruction: "Blend the tomatoes, red bell peppers, and scotch bonnet until smooth. Boil the blend in a small pot for 10 minutes until it reduces to a paste.",
+          note: "Boiling the base removes excess sour water, making the stew base sweet and savory."
         },
         {
           step: 2,
-          title: "Cook the Base",
-          instruction: "Heat the oil in your pot. Sauté the onions until translucent. Stir in the chopped peppers and cook on medium-low heat for 8 minutes.",
-          note: "Cover to trap the heat and lock in natural flavors."
+          title: "Sauté and Stew",
+          instruction: "In your main cooking pot, heat olive oil and sauté chopped onions. Add curry, thyme, bay leaves, and the reduced pepper base. Fry on low heat for 12 minutes.",
+          note: "Frying the herbs releases their essential oils and intensifies the flavor."
         },
         {
           step: 3,
-          title: "Add Main Ingredients & Simmer",
-          instruction: `Incorporate the main parts of the ${title} into the pan. Stir thoroughly to combine with the aromatics. Cook for 20 minutes, adding a splash of water if the mix gets dry.`,
-          note: "Season with salt and seasoning cubes to taste during this step."
-        },
-        {
-          step: 4,
-          title: "Serve",
-          instruction: "Garnish with fresh herbs, remove from heat, and plate beautifully.",
-          note: "Best enjoyed warm!"
+          title: "Steam the Rice",
+          instruction: "Rinse the rice thoroughly. Add the rice and low-sodium stock to the pot. Cover the top of the pot with foil, then seal with the lid. Cook on very low heat for 25-30 minutes.",
+          note: "Steaming the rice with foil traps moisture, cooking it to perfection without adding too much liquid."
         }
-      ]
-    };
-  }
-
-  // Fallback: Generate generic mock recipe
-  function generateLocalMockRecipe(query) {
-    return {
-      title: query.charAt(0).toUpperCase() + query.slice(1) + " (Nourir Style)",
-      description: `A delicious and authentic representation of ${query}, crafted carefully with standard fresh ingredients and low-fat methods to maintain absolute fit-fam nutritional values.`,
-      prepTime: "15 mins",
-      cookTime: "30 mins",
-      totalTime: "45 mins",
-      serves: "feeds 4",
-      diet: "Nourir Standard",
-      badge: "Local Specialty",
-      image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&auto=format&fit=crop&q=60",
-      ingredients: {
-        "Main Ingredients": [
-          `500g of prep base for ${query}`,
-          "2 large red bell peppers",
-          "1 scotch bonnet pepper",
-          "1 medium onion, sliced"
-        ],
-        "Spices & Oils": [
-          "2 tbsp healthy vegetable oil",
-          "1 tsp curry powder",
-          "1 tsp dried thyme",
-          "2 seasoning cubes",
-          "Salt to taste"
-        ],
-        "Utensils You'll Need": [
-          "Standard cooking pot",
-          "Stirring spoon",
-          "Knife and prep board"
-        ]
-      },
-      instructions: [
+      ];
+    } else if (q.includes("soup") || q.includes("egusi") || q.includes("ogbono") || q.includes("okro") || q.includes("okra")) {
+      title = q.includes("egusi") ? "Nutrient-Dense Egusi Soup" : q.includes("okro") || q.includes("okra") ? "Low-Oil Seafood Okra Soup" : title;
+      description = "A comforting, traditional African soup packed with nutritious leafy greens, cooked with minimal oils and assorted rich proteins.";
+      diet = "Keto, Gluten-Free";
+      badge = "Rich & Savory";
+      img = "Assets/efo.png";
+      ingredients["Main Ingredients"] = [
+        "2 cups finely chopped fresh vegetables (Spinach, Ugu, or Bitterleaf)",
+        q.includes("egusi") ? "1 cup ground melon seeds (Egusi)" : q.includes("okro") || q.includes("okra") ? "2 cups fresh okra, chopped" : "1.5 cups soup base",
+        "300g mixed proteins (skinless chicken breast, shaki, boiled fish chunks)",
+        "1 red onion, finely diced"
+      ];
+      ingredients["Healthy Accents"] = [
+        "2 tbsp red palm oil",
+        "2 tbsp fermented locust beans (Iru)",
+        "2 tbsp ground crayfish",
+        "Salt and seasoning cubes to taste"
+      ];
+      instructions = [
         {
           step: 1,
-          title: "Prep & Clean",
-          instruction: `Clean and wash all raw ingredients required for the ${query}. Cut the peppers, onions, and chop meat/vegetables accordingly.`,
-          note: "Always use fresh ingredients for the best authentic taste."
+          title: "Cook the Proteins",
+          instruction: "Boil the chicken, shaki, and fish in a pot with chopped onions, seasoning cubes, and salt until tender. Save the stock.",
+          note: "Saves time and retains nutrient-rich juices."
         },
         {
           step: 2,
-          title: "Cook the Base",
-          instruction: "Heat oil in the pot, fry chopped onions until transparent, then add blended peppers and spices. Fry for 10 minutes until oil rises.",
-          note: "Stir continuously to avoid any sticking."
+          title: "Prepare Soup Base",
+          instruction: q.includes("egusi") 
+            ? "Mix ground Egusi with a little warm water to form thick paste blocks. Gently drop them into boiling stock with palm oil and Iru, then let it simmer for 15 minutes."
+            : "Heat palm oil in stock, add locust beans, onions, and boiled proteins. Simmer for 5 minutes.",
+          note: "Letting the base cook thoroughly ensures a smooth, deep texture."
         },
         {
           step: 3,
-          title: "Final Simmer",
-          instruction: `Add the main contents of the ${query} into the base, cover the pot, and cook on low heat for 15-20 minutes until tender and hot.`,
-          note: "Serve hot alongside a side of your choice!"
+          title: "Fold in Vegetables",
+          instruction: q.includes("okro") || q.includes("okra") 
+            ? "Add the chopped okra and simmer for 3 minutes. Fold in fresh green vegetables, stir well, and turn off heat."
+            : "Add fresh spinach or Ugu, stir thoroughly, and let it cook for 2 minutes on low heat before turning off.",
+          note: "Overcooking greens destroys vitamins. Residual heat will finish the cooking."
         }
-      ]
-    };
-  }
+      ];
+    } else if (q.includes("suya") || q.includes("beef") || q.includes("chicken") || q.includes("skewers") || q.includes("meat")) {
+      title = q.includes("suya") ? "Oven-Grilled Suya Skewers" : title;
+      description = "Thinly sliced grilled protein dry-rubbed in Yaji (traditional Northern Nigerian spice blend of ground peanut, ginger, paprika, and garlic).";
+      diet = "Keto, High Protein";
+      badge = "Spicy & Lean";
+      img = "Assets/suya.jpg";
+      ingredients["Main Ingredients"] = [
+        "500g lean beef sirloin or chicken breast, sliced into thin strips",
+        "3 tbsp traditional suya spice (Yaji)",
+        "1 red onion, sliced into rings",
+        "1 cucumber, sliced"
+      ];
+      ingredients["Healthy Accents"] = [
+        "1 tbsp peanut oil or olive oil",
+        "1/2 tsp salt"
+      ];
+      instructions = [
+        {
+          step: 1,
+          title: "Prep and Thread the Skewers",
+          instruction: "Soak wooden skewers in water for 30 minutes. Thread the thin beef or chicken strips onto the skewers in a zigzag pattern.",
+          note: "Soaking the skewers prevents them from catching fire under the grill."
+        },
+        {
+          step: 2,
+          title: "Apply the Dry Rub",
+          instruction: "Brush the threaded meat lightly with olive oil, then dredge generously in the suya spice rub until completely coated.",
+          note: "Press the spice mixture into the meat so it sticks securely."
+        },
+        {
+          step: 3,
+          title: "Grill to Perfection",
+          instruction: "Preheat grill or oven to 400°F (200°C). Place skewers on a foil-lined baking sheet and grill for 12-15 minutes, flipping once, until slightly charred.",
+          note: "Serve hot, garnished with fresh raw onions and cucumber slices to cool the heat."
+        }
+      ];
+    } else {
+      // General Healthy Recipe
+      ingredients["Main Ingredients"] = [
+        `500g of fresh ${query} base`,
+        "1 red onion, sliced",
+        "2 fresh tomatoes, chopped",
+        "Fresh green vegetables"
+      ];
+      ingredients["Healthy Accents"] = [
+        "1 tbsp healthy oil (canola or olive oil)",
+        "1 tsp ginger-garlic paste",
+        "1 pinch of salt",
+        "Low-sodium seasoning cubes"
+      ];
+      instructions = [
+        {
+          step: 1,
+          title: "Prep Work",
+          instruction: `Thoroughly wash and clean all ingredients for your ${query}. Dice vegetables and chop meats into bite-sized portions.`,
+          note: "Fresh ingredients are key to clean eating."
+        },
+        {
+          step: 2,
+          title: "Sauté Aromatics",
+          instruction: "Heat oil in a pan. Sauté onions, garlic, and ginger paste until aromatic and translucent.",
+          note: "Cooking aromatics slowly unlocks deep flavors naturally without excess sodium."
+        },
+        {
+          step: 3,
+          title: "Cook and Simmer",
+          instruction: `Add the remaining main ingredients, cover the pan, and simmer on low-medium heat for 20 minutes until thoroughly cooked.`,
+          note: `Serve warm and enjoy your healthy ${query}!`
+        }
+      ];
+    }
 
-  // Bind Search events
-  if (searchInput && searchIconBtn) {
-    searchIconBtn.addEventListener("click", () => {
-      executeSearch(searchInput.value);
-    });
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        executeSearch(searchInput.value);
-      }
-    });
+    return {
+      title,
+      description,
+      prepTime,
+      cookTime,
+      totalTime,
+      serves,
+      diet,
+      badge,
+      image: img,
+      ingredients,
+      instructions
+    };
   }
 
   // ==========================================================================
-  // API KEY CONFIG MODAL LOGIC (Optional)
+  // API KEY CONFIG MODAL LOGIC
   // ==========================================================================
   const apiKeyBtn = document.getElementById("api-key-btn");
   const apiKeyModal = document.getElementById("api-key-modal");
@@ -1430,7 +1308,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const clearKeyBtn.addEventListener("click", () => {
+    clearKeyBtn.addEventListener("click", () => {
       localStorage.removeItem("anthropic_api_key");
       apiKeyInput.value = "";
       alert("Anthropic API Key cleared!");
