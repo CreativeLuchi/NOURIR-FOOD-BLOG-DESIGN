@@ -1,0 +1,110 @@
+Created At: 2026-06-30T09:49:36Z
+Completed At: 2026-06-30T09:49:36Z
+File Path: `file:///Users/bolanleogungbemi/Desktop/NOURIR/index.js`
+Total Lines: 133
+Total Bytes: 4422
+Showing lines 1 to 133
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: /* ==========================================================================
+2:    nourir — Main JavaScript File
+3:    ========================================================================== */
+4: 
+5: document.addEventListener("DOMContentLoaded", () => {
+6:   
+7:   // 1. STICKY NAV ON SCROLL
+8:   const mainNav = document.getElementById("main-nav");
+9:   const scrollThreshold = 60;
+10: 
+11:   const handleScroll = () => {
+12:     if (window.scrollY > scrollThreshold) {
+13:       mainNav.classList.add("scrolled");
+14:     } else {
+15:       mainNav.classList.remove("scrolled");
+16:     }
+17:   };
+18: 
+19:   window.addEventListener("scroll", handleScroll);
+20:   // Run once on load in case page is already scrolled
+21:   handleScroll();
+22: 
+23: 
+24:   // 2. MOBILE MENU HAMBURGER TOGGLE
+25:   const menuToggleBtn = document.getElementById("menu-toggle-btn");
+26:   const navLinksList = document.querySelector(".nav-links");
+27: 
+28:   if (menuToggleBtn && navLinksList) {
+29:     menuToggleBtn.addEventListener("click", () => {
+30:       navLinksList.classList.toggle("nav-active");
+31:       // Optional: animate hamburger lines if class is added
+32:       menuToggleBtn.classList.toggle("open");
+33:     });
+34: 
+35:     // Close menu when a link is clicked
+36:     const links = navLinksList.querySelectorAll("a");
+37:     links.forEach(link => {
+38:       link.addEventListener("click", () => {
+39:         navLinksList.classList.remove("nav-active");
+40:         menuToggleBtn.classList.remove("open");
+41:       });
+42:     });
+43:   }
+44: 
+45: 
+46:   // 3. CATEGORY TAG SELECTION VISUAL TOG
+<truncated 1402 bytes>
+tContent = videoTitle;
+80:         videoModal.classList.add("modal-active");
+81:         videoModal.setAttribute("aria-hidden", "false");
+82:         document.body.style.overflow = "hidden"; // Prevent background scroll
+83:         
+84:         console.log(`Opening video: ${videoTitle}`);
+85:       });
+86:     });
+87: 
+88:     // Close Modal Function
+89:     const closeModal = () => {
+90:       videoModal.classList.remove("modal-active");
+91:       videoModal.setAttribute("aria-hidden", "true");
+92:       document.body.style.overflow = ""; // Restore background scroll
+93:     };
+94: 
+95:     if (modalCloseBtn) {
+96:       modalCloseBtn.addEventListener("click", closeModal);
+97:     }
+98:     if (modalCloseBackdrop) {
+99:       modalCloseBackdrop.addEventListener("click", closeModal);
+100:     }
+101: 
+102:     // Close on Escape Key
+103:     document.addEventListener("keydown", (e) => {
+104:       if (e.key === "Escape" && videoModal.classList.contains("modal-active")) {
+105:         closeModal();
+106:       }
+107:     });
+108:   }
+109: 
+110: 
+111:   // 5. ACCESSIBILITY / INTERACTIVE LOGS
+112:   // Setup quick CTA alerts/logs for buttons/links that are placeholder in Phase 1
+113:   const mealPlanBtn = document.getElementById("generate-meal-plan-btn");
+114:   if (mealPlanBtn) {
+115:     mealPlanBtn.addEventListener("click", () => {
+116:       alert("Interactive Foodie Challenge Meal Planner coming soon in Phase 2!");
+117:     });
+118:   }
+119: 
+120:   const newsletterForm = document.getElementById("newsletter-subscribe-form");
+121:   if (newsletterForm) {
+122:     newsletterForm.addEventListener("submit", (e) => {
+123:       e.preventDefault();
+124:       const emailInput = newsletterForm.querySelector(".newsletter-input");
+125:       if (emailInput && emailInput.value) {
+126:         alert(`Thank you for subscribing, ${emailInput.value}!`);
+127:         emailInput.value = "";
+128:       }
+129:     });
+130:   }
+131:   
+132: });
+133: 
+The above content shows the entire, complete file contents of the requested file.

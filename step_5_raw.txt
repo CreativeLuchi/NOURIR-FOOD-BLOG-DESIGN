@@ -1,0 +1,84 @@
+Created At: 2026-06-30T09:49:35Z
+Completed At: 2026-06-30T09:49:36Z
+File Path: `file:///Users/bolanleogungbemi/Desktop/NOURIR/index.html`
+Total Lines: 699
+Total Bytes: 31927
+Showing lines 1 to 699
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <!DOCTYPE html>
+2: <html lang="en">
+3: <head>
+4:   <meta charset="UTF-8">
+5:   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:   <title>Nourir — Nigerian Healthy Eating Platform</title>
+7:   <meta name="description" content="Redefining Nigerian healthy eating. No food shame. Gourmet recipes, custom meal planning, and local ingredient swaps that fit your budget.">
+8:   
+9:   <!-- Google Fonts -->
+10:   <link rel="preconnect" href="https://fonts.googleapis.com">
+11:   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+12:   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+13:   
+14:   <!-- Main Stylesheet -->
+15:   <link rel="stylesheet" href="index.css">
+16: </head>
+17: <body>
+18:   <!-- 1. NAVIGATION BAR -->
+19:   <nav id="main-nav" class="sticky-nav">
+20:     <div class="nav-container twisted-nav">
+21:       <div class="nav-brand">
+22:         <a href="#" class="logo" id="nav-logo">nourir</a>
+23:       </div>
+24:       <div class="nav-right-group">
+25:         <ul class="nav-links">
+26:           <li><a href="#recipes">Recipes <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+27:           <li><a href="#shows">Shows <svg class="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColo
+<truncated 31740 bytes>
+      Subscribe 
+653:             <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow">
+654:           </button>
+655:         </form>
+656:       </div>
+657:     </div>
+658:     <div class="footer-bottom">
+659:       <div class="divider"></div>
+660:       <p class="copyright">&copy; 2026 Nourir. All rights reserved.</p>
+661:     </div>
+662:   </footer>
+663: 
+664:   <!-- VIDEO MODAL CONTAINER -->
+665:   <div class="video-modal" id="video-player-modal" role="dialog" aria-modal="true" aria-hidden="true">
+666:     <div class="modal-backdrop" id="modal-close-backdrop"></div>
+667:     <div class="modal-content">
+668:       <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+669:       <div class="modal-body">
+670:         <div class="mock-player-container">
+671:           <div class="player-visual-bg">
+672:             <svg class="large-play-icon" viewBox="0 0 24 24" width="80" height="80" fill="#F05A28">
+673:               <polygon points="5 3 19 12 5 21 5 3"></polygon>
+674:             </svg>
+675:             <h3 id="modal-video-title">Video Show Title</h3>
+676:             <p>Video Player Stream Coming Soon</p>
+677:           </div>
+678:           <!-- Mock Controls -->
+679:           <div class="player-controls">
+680:             <div class="progress-bar-wrapper">
+681:               <div class="progress-bar-fill"></div>
+682:             </div>
+683:             <div class="controls-row">
+684:               <button class="control-btn play-pause">⏸</button>
+685:               <span class="video-time">02:14 / 15:00</span>
+686:               <button class="control-btn volume">🔊</button>
+687:               <button class="control-btn fullscreen">⛶</button>
+688:             </div>
+689:           </div>
+690:         </div>
+691:       </div>
+692:     </div>
+693:   </div>
+694: 
+695:   <!-- Main JavaScript File -->
+696:   <script src="index.js"></script>
+697: </body>
+698: </html>
+699: 
+The above content shows the entire, complete file contents of the requested file.

@@ -1,0 +1,133 @@
+Created At: 2026-06-30T09:49:36Z
+Completed At: 2026-06-30T09:49:36Z
+File Path: `file:///Users/bolanleogungbemi/Desktop/NOURIR/index.css`
+Total Lines: 2076
+Total Bytes: 39308
+Showing lines 1 to 800
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: /* ==========================================================================
+2:    nourir — Main Stylesheet (Vanilla CSS)
+3:    ========================================================================== */
+4: 
+5: /* --------------------------------------------------------------------------
+6:    1. DESIGN TOKENS & VARIABLES
+7:    -------------------------------------------------------------------------- */
+8: :root {
+9:   /* Colors */
+10:   --color-primary-orange: #F05A28;    /* hero background, primary CTAs */
+11:   --color-primary-green: #004810;     /* dark green sections, footer */
+12:   --color-accent-yellow: #FFD22E;    /* highlight cards */
+13:   --color-accent-lime: #CEF646;      /* lime/olive accent badges */
+14:   --color-bg-cream: #FCF0E0;         /* off-white section backgrounds */
+15:   --color-bg-white: #FFFFFF;
+16:   --color-text-dark: #1A1A1A;
+17:   --color-text-body: #3D3D3D;
+18:   --color-text-light: #FFFFFF;
+19:   --color-card-bg: #F9F4EE;
+20:   --color-tag-green: #3B6E22;
+21:   
+22:   --color-dark-burgundy: #4E070B;    /* About button text / custom planner bg */
+23:   --color-bright-orange: #F64908;    /* watch-eat-learn bento card */
+24:   --color-muted-grey: #7D7D7D;
+25:   
+26:   /* Fonts */
+27:   --font-logo: "Fraunces", Georgia, serif;
+28:   --font-headings: "DM Serif Display", Georgia, serif;
+29:   --font-body: "DM Sans", sans-serif;
+30:   
+31:   /* Transitions */
+32:   --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+33:   --transition-fast: all 0.15s ease-out;
+34: }
+35: 
+36: /* ----------------------------------------------------------
+<truncated 16358 bytes>
+in: 0 auto;
+714:   padding: 0 40px;
+715: }
+716: 
+717: .bento-card {
+718:   border-radius: 16px;
+719:   padding: 32px;
+720:   position: relative;
+721:   overflow: hidden;
+722:   display: flex;
+723:   flex-direction: column;
+724:   justify-content: space-between;
+725:   min-height: 240px;
+726:   transition: var(--transition-smooth);
+727: }
+728: 
+729: .bento-card:hover {
+730:   transform: translateY(-4px);
+731:   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+732: }
+733: 
+734: .bento-card.span-2 {
+735:   grid-column: span 2;
+736:   flex-direction: row;
+737:   align-items: center;
+738:   gap: 24px;
+739: }
+740: 
+741: .bento-card h2 {
+742:   font-family: var(--font-headings);
+743:   font-size: 26px;
+744:   line-height: 1.25;
+745:   margin-bottom: 12px;
+746: }
+747: 
+748: .bento-card p {
+749:   font-size: 14px;
+750:   line-height: 1.5;
+751:   color: var(--color-text-body);
+752: }
+753: 
+754: /* Bento Card specifics */
+755: .bento-yellow {
+756:   background-color: var(--color-accent-yellow);
+757:   color: var(--color-text-dark);
+758: }
+759: 
+760: .bento-yellow h2 {
+761:   color: var(--color-text-dark);
+762: }
+763: 
+764: .bento-card-content {
+765:   flex: 1.2;
+766: }
+767: 
+768: .bento-card-image {
+769:   flex: 0.8;
+770:   height: 100%;
+771:   border-radius: 12px;
+772:   overflow: hidden;
+773: }
+774: 
+775: .bento-img-cover {
+776:   width: 100%;
+777:   height: 100%;
+778:   object-fit: cover;
+779: }
+780: 
+781: /* Bento Style 2 (Stew Card) */
+782: .bento-style-2 {
+783:   padding: 0;
+784: }
+785: 
+786: .bento-style-2 .full-image {
+787:   position: relative;
+788:   width: 100%;
+789:   height: 100%;
+790: }
+791: 
+792: .bento-card-overlay {
+793:   position: absolute;
+794:   bottom: 0;
+795:   left: 0;
+796:   width: 100%;
+797:   padding: 24px;
+798:   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+799:   color: var(--color-bg-white);
+800: }
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

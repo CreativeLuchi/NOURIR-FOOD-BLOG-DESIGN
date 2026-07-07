@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourir - Healthy Nigerian Recipes</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Feather Icons for lightweight icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <!-- 1. HEADER (Restored Navigation with Dropdowns & Search) -->
+  <!-- 1. HEADER (Restored Navigation with Dropdowns & Search) -->
+  <header id="main-nav" class="sticky-nav">
+    <div class="nav-container twisted-nav">
+      <a href="#" class="logo">nourir</a>
+      <div class="nav-right-group">
+        <ul class="nav-links">
+          <li class="dropdown">
+            <a href="#recipes">Recipes <img src="Assets/fast-forward 2.png" alt="chevron" class="nav-chevron-img"></a>
+            <ul class="dropdown-menu">
+              <li><a href="#recipes">Breakfast</a></li>
+              <li><a href="#recipes">Soups & Stews</a></li>
+              <li><a href="#recipes">Rice Dishes</a></li>
+              <li><a href="#recipes">Street Food</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#video-shows">Shows <img src="Assets/fast-forward 2.png" alt="chevron" class="nav-chevron-img"></a>
+            <ul class="dropdown-menu">
+              <li><a href="#video-shows">Zeelicious Foods</a></li>
+              <li><a href="#video-shows">SisiYemmieTV</a></li>
+              <li><a href="#video-shows">Flo Chinyere</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#blog-callout">Articles <img src="Assets/fast-forward 2.png" alt="chevron" class="nav-chevron-img"></a>
+            <ul class="dropdown-menu">
+              <li><a href="#blog-callout">Healthy Eating</a></li>
+              <li><a href="#blog-callout">Food Reviews</a></li>
+              <li><a href="#blog-callout">Ingredients Swaps</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#footer">Our Story <img src="Assets/fast-forward 2.png" alt="chevron" class="nav-chevron-img"></a>
+            <ul class="dropdown-menu">
+              <li><a href="#footer">About Us</a></li>
+              <li><a href="#footer">Contact Us</a></li>
+              <li><a href="#footer">Newsletter</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#recipes" class="btn btn-create-plan">Create Meal Plan</a>
+          <button class="icon-btn search-trigger" aria-label="Search">
+            <i data-feather="search"></i>
+          </button>
+          <button class="menu-toggle twisted-menu" id="menu-toggle-btn" aria-label="Toggle Menu">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-zigzag"></div>
+  </header>
+
+  <!-- 2. HERO SECTION (Solid Orange Background, Grid Layout, White Button) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Jollof. Suya. Efo. All of It<br>The Healthy Way</h1>
+        <p>Cook healthier versions of your favourite Nigerian meals using ingredients you can actually find and afford</p>
+        <div style="margin-top: 32px;">
+          <a href="#recipes" class="btn btn-hero-white">
+            View all recipes
+            <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-container">
+        <img src="Assets/ChatGPT Image Jul 2, 2026, 06_58_03 PM.png" alt="Healthy Nigerian Food Spread" class="hero-collage-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ABOUT SECTION (Full Width, Split Layout) -->
+  <section class="about-section-full">
+    <div class="about-left-bg" style="background-image: url('Assets/ChatGPT Image Jun 14, 2026, 04_15_58 PM.png');"></div>
+    <div class="about-right-content">
+      <div class="about-text-wrapper">
+        <h2>Naija food.<br>But make it fit-fam!</h2>
+        <p>Welcome to Nourir where healthy eating doesn't mean abandoning your mother's kitchen, skipping the rice at owambe, or pretending you don't hear the pepper soup calling your name.</p>
+        <p style="margin-top: 16px;">No food shaming, no sad salads....</p>
+        <div style="margin-top: 32px;">
+          <a href="#recipes" class="btn btn-story-white">
+            Our story
+            <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RECIPE GRID (12 Cards with correct metadata and images) -->
+  <section id="recipes" class="recipes-section">
+    <div class="section-header container centered-header">
+      <h2>Bring Recipes to Life</h2>
+      
+      <div class="recipe-search-container">
+        <div class="recipe-search-box">
+          <input type="text" placeholder="Search recipes, categories..." class="recipe-search-input">
+          <button class="recipe-search-icon" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="categories-wrapper recipe-categories">
+        <div class="categories-row">
+          <button class="category-tag yellow"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Soups & Stews</button>
+          <button class="category-tag light-peach"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Snacks & Drinks</button>
+          <button class="category-tag dark-burgundy"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Breakfast</button>
+          <button class="category-tag dark-green"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Protein & Grills</button>
+          <button class="category-tag orange"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Street Food</button>
+          <button class="category-tag light-green"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Rice Dishes</button>
+          <button class="category-tag dark"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Food Platter</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="recipe-grid container">
+      <!-- Card 1 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/image.png" alt="Tropical Tiger Nut Bowl" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Tropical Tiger Nut Bowl</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 6 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 2</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/efo.png" alt="Efo Riro with fufu" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Efo Riro with fufu</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 25 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 1</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/image-1 2.png" alt="Seeded Oat Bread Loaf" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Seeded Oat Bread Loaf</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 45 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 2</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/jollof.png" alt="Smoky Naija Jollof" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Smoky Naija Jollof</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 50 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 2</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/akara.jpg" alt="Steamed Moi Moi pudding" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Steamed Moi Moi pudding</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 1h</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 5</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/carrot cake.jpg" alt="Coconut-Carrot Cake" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Coconut-Carrot Cake</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 1h 15mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 4</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/image-2.png" alt="Tomatoe Ata Rodo Puree" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Tomatoe Ata Rodo Puree</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 25 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 3</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/abacha.jpg" alt="Abacha & Ede Special" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Abacha & Ede Special</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 1h 30 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 5</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/image-3.png" alt="Goat Meat Plantain Tacos" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Goat Meat Plantain Tacos</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 25 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 3</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/suya.jpg" alt="Peppered Skewers & Masa" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Peppered Skewers & Masa</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 1hr</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 2</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/image-1.png" alt="Naija Macaroni Salad" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Naija Macaroni Salad</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 15 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 5</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="recipe-card">
+        <div class="recipe-img-container">
+          <img src="Assets/image-4.png" alt="Puff Puff Royale" class="recipe-img">
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">Puff Puff Royale</h3>
+          <div class="recipe-meta">
+            <span class="meta-item"><span class="meta-icon">⏳</span> 40 mins</span>
+            <span class="meta-item"><span class="meta-icon">👥</span> feeds 3</span>
+            <button class="save-btn"><i data-feather="plus"></i> save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-footer container">
+      <a href="#recipes" class="btn btn-primary btn-lg" style="background-color: var(--color-primary-orange); color: white; display: inline-flex; align-items: center; gap: 8px;">
+        View all recipes 
+        <img src="Assets/play.png" alt="arrow" class="btn-arrow" style="width: 16px; height: 16px;">
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. FEATURE BENTO GRID -->
+  <section id="bento-features" class="bento-section">
+    <div class="custom-bento-grid">
+      <!-- Left Column -->
+      <div class="bento-col-left">
+        <!-- Tile 1 -->
+        <div class="bento-tile tile-1">
+          <h2>Sapa cannot spoil your diet. We budget too!</h2>
+          <img src="Assets/image 39.png" alt="budget" class="bento-notes-img">
+        </div>
+        <!-- Tile 3 -->
+        <div class="bento-tile tile-3">
+          <h2>Select Recipes to create a custom meal plan</h2>
+          <img src="Assets/image 10.png" alt="custom meal plan" class="bento-img-3">
+        </div>
+      </div>
+      
+      <!-- Right Column -->
+      <div class="bento-col-right">
+        <!-- Tile 2 -->
+        <div class="bento-tile tile-2">
+          <img src="Assets/tile 2.png" alt="healthy meal" class="full-bg-img">
+        </div>
+        <!-- Sub Row for Tile 4 and 5 -->
+        <div class="bento-sub-row">
+          <!-- Tile 4 -->
+          <div class="bento-tile tile-4">
+            <img src="Assets/video-square.png" alt="video icon" class="bento-icon-4">
+            <h2>Watch, eat, learn and bring recipes to life</h2>
+          </div>
+          <!-- Tile 5 -->
+          <div class="bento-tile tile-5">
+            <h2>Local ingredients swap tool</h2>
+            <img src="Assets/image 38.png" alt="swap tool" class="bento-img-5">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TODAY'S NOURIR SECTION (Full Width, Split Layout) -->
+  <section class="todays-nourir-section-full">
+    <div class="todays-nourir-left">
+      <h2 class="todays-nourir-title-outline">Today's Nourir</h2>
+      <div class="todays-nourir-card">
+        <img src="Assets/ChatGPT Image Jul 3, 2026, 10_36_16 PM.png" alt="Crunchy Suya Skewers" class="todays-nourir-card-img">
+      </div>
+    </div>
+    <div class="todays-nourir-right">
+      <div class="todays-nourir-right-content">
+        <div class="todays-nourir-meta">
+          <span class="meta-item"><i data-feather="clock"></i> 25 mins</span>
+          <span class="meta-item"><i data-feather="users"></i> feeds 4</span>
+          <span class="meta-item"><i data-feather="bar-chart-2"></i> Flexitarian diet</span>
+          <span class="meta-item save-meta-btn" style="cursor: pointer;"><i data-feather="plus-square"></i> save</span>
+        </div>
+        <h3 class="todays-nourir-heading">Crunchy Suya Skewers</h3>
+        <p class="todays-nourir-desc">Perfect dish featuring roasted grilled beef skewers coated in Yaji (suya spice blend made from groundnuts, ginger, and paprika)</p>
+        <div class="todays-nourir-btn-wrapper">
+          <a href="#recipes" class="btn btn-dive-in">
+            Dive right in
+            <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
+          </a>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="#recipes" class="todays-nourir-all-link">View all recipes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. VIDEO SHOWS SECTION (Marquee Animation) -->
+  <section id="video-shows" class="shows-section">
+    <div class="container">
+      <div class="videos-header">
+        <h2>Watch. Cook. Chop</h2>
+        <a href="#video-shows" class="flex items-center gap-sm text-muted" style="font-weight: 600; text-decoration: underline;">View all shows <i data-feather="fast-forward" style="color: var(--color-primary-orange); width: 18px;"></i></a>
+      </div>
+    </div>
+    
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <!-- Card 1 -->
+        <div class="video-card">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="Jeunpelumi video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">Jeunpelumi</h3>
+              <span class="creator-handle">@Jeunpelumi</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">27.3K</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">272</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="video-card">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="SisiYemmieTV video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">SisiYemmieTV</h3>
+              <span class="creator-handle">@SisiYemmieTV</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">1.11M</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">1.5K</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="video-card">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="Zeelicious Foods video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">Zeelicious Foods</h3>
+              <span class="creator-handle">@ZeeliciousFoods</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">1.11M</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">1K</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="video-card">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="DIARY OF A KITCHEN LOVER video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">DIARY OF A KITCHEN LOVER</h3>
+              <span class="creator-handle">@diaryofakitchenlover</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">326K</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">882</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="video-card">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="Flo Chinyere video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">Flo Chinyere</h3>
+              <span class="creator-handle">@FloChinyere</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">578K</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">801</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicates for continuous scrolling marquee -->
+        <!-- Card 1 Duplicate -->
+        <div class="video-card" aria-hidden="true">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="Jeunpelumi video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">Jeunpelumi</h3>
+              <span class="creator-handle">@Jeunpelumi</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">27.3K</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">272</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 Duplicate -->
+        <div class="video-card" aria-hidden="true">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="SisiYemmieTV video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">SisiYemmieTV</h3>
+              <span class="creator-handle">@SisiYemmieTV</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">1.11M</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">1.5K</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 Duplicate -->
+        <div class="video-card" aria-hidden="true">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="Zeelicious Foods video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">Zeelicious Foods</h3>
+              <span class="creator-handle">@ZeeliciousFoods</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">1.11M</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">1K</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 Duplicate -->
+        <div class="video-card" aria-hidden="true">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="DIARY OF A KITCHEN LOVER video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">DIARY OF A KITCHEN LOVER</h3>
+              <span class="creator-handle">@diaryofakitchenlover</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">326K</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">882</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 Duplicate -->
+        <div class="video-card" aria-hidden="true">
+          <div class="video-iframe-wrapper">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 06_42_38 PM.png" alt="Flo Chinyere video show">
+            <div class="play-overlay-btn">
+              <i data-feather="play"></i>
+            </div>
+          </div>
+          <div class="video-card-info">
+            <div class="creator-channel-header">
+              <h3 class="creator-name">Flo Chinyere</h3>
+              <span class="creator-handle">@FloChinyere</span>
+            </div>
+            <div class="creator-stats">
+              <div class="stat-item sub-count">
+                <span class="stat-number">578K</span> subscribers
+              </div>
+              <div class="stat-divider">•</div>
+              <div class="stat-item video-count">
+                <img src="Assets/video-square.png" alt="video icon" class="stat-icon">
+                <span class="stat-number">801</span> videos
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOOD REVIEW BLOG CALLOUT -->
+  <section id="blog-callout" class="blog-section">
+    <div class="blog-container">
+      <div class="blog-left">
+        <div class="collage-wrapper">
+          <div class="magazine-frame">
+            <img src="Assets/ChatGPT Image Jul 5, 2026, 05_57_24 PM.png" alt="What's for Brunch? 7 Healthy Plantain Waffle Ideas" class="collage-main-img">
+            <div class="food-review-badge">
+              <span>Food<br>Review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blog-right">
+        <div style="font-family: var(--font-body); font-weight: 700; color: var(--color-primary-orange); letter-spacing: 0.1em; text-transform: uppercase; font-size: 14px; margin-bottom: 12px;">Featured Article</div>
+        <h2>What's for Brunch? 7 Healthy Plantain Waffle Ideas You'll Want Every Weekend</h2>
+        <p>Gone are the days when eating "clean" meant saying goodbye to jollof rice, plantain, suya, moi moi or that extra spoon of stew your mum insisted you needed. Today, it's less about cutting out the foods we love and more about giving them a smarter, fresher twist.</p>
+        <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+          <a href="#blog-callout" class="btn btn-outline-dark" style="font-weight: 700; border-radius: 50px; padding: 12px 32px;">Read Article</a>
+          <a href="#blog-callout" style="color: var(--color-text-dark); text-decoration: underline; font-size: 14px; font-weight: 600; margin-left: 12px;">Read all articles <span class="arrow-icon">➔</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="brand-col">
+          <h2 class="logo" style="color: white; margin-bottom: var(--spacing-sm);">nourir</h2>
+          <p class="text-muted" style="margin-bottom: 16px;">Follow us</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><i data-feather="instagram"></i></a>
+            <a href="#" class="social-icon"><i data-feather="youtube"></i></a>
+            <a href="#" class="social-icon"><i data-feather="twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <div class="nav-col">
+            <a href="#video-shows" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Shows</a>
+            <a href="#recipes" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Recipes</a>
+            <a href="#blog-callout" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Articles</a>
+          </div>
+          <div class="nav-col">
+            <a href="#about" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Our Story</a>
+            <a href="#footer" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Contact Us</a>
+            <a href="#footer" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Privacy Policy</a>
+          </div>
+        </div>
+        <div class="newsletter-col">
+          <h3 style="margin-bottom: var(--spacing-sm);">Subscribe to our newsletter</h3>
+          <form id="newsletter-subscribe-form" class="newsletter">
+            <input type="text" placeholder="Name" required style="border-radius: 50px;">
+            <input type="email" placeholder="Email" required style="border-radius: 50px;">
+            <button class="btn" type="submit" style="width: 100%; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 8px;">Subscribe <span class="arrow-icon" style="color: var(--color-primary-orange);">➔</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
