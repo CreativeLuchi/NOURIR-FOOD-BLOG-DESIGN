@@ -59,6 +59,9 @@
         </ul>
         <div class="nav-actions">
           <a href="#recipes" class="btn btn-create-plan">Create Meal Plan</a>
+          <button class="icon-btn key-trigger" aria-label="API Key Settings" id="api-key-btn">
+            <i data-feather="key"></i>
+          </button>
           <button class="icon-btn search-trigger" aria-label="Search">
             <i data-feather="search"></i>
           </button>
@@ -700,6 +703,79 @@
     </div>
   </section>
 
+  <!-- RECIPE DETAIL SECTION (Hidden by default) -->
+  <section id="recipe-detail-section" class="recipe-detail-section" style="display: none;">
+    <div class="recipe-detail-container container">
+      
+      <!-- Back to Home Link/Button -->
+      <div class="back-to-home-wrapper">
+        <a href="#" class="back-home-btn"><span class="arrow-icon">⬅</span> Back to Recipes</a>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div id="recipe-loading" class="recipe-loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p id="loading-text">Claude is searching the web for this recipe...</p>
+      </div>
+
+      <div id="recipe-detail-content">
+        <!-- Main Recipe Header -->
+        <div class="recipe-detail-header-row">
+          <div class="recipe-detail-header-left">
+            <div class="recipe-detail-meta" id="recipe-detail-meta-row">
+              <span class="meta-item"><span class="meta-icon">⏳</span> <span id="r-prep-cook-time">25 mins</span></span>
+              <span class="meta-item"><span class="meta-icon">👥</span> <span id="r-serves">feeds 4</span></span>
+              <span class="meta-item"><span class="meta-icon">🥗</span> <span id="r-diet">Mediterranean diet</span></span>
+            </div>
+            <h1 class="recipe-detail-title" id="r-title">Golden Goodness: Healthy Whole Wheat Bread Recipe</h1>
+            <p class="recipe-detail-description" id="r-description">Fluffy, nutty, and perfect for your avocado toast or that late-night peanut butter craving.</p>
+            <div class="recipe-detail-actions">
+              <button class="btn btn-save-recipe" id="r-save-btn">
+                Save Recipe <span class="arrow-icon">➔</span>
+              </button>
+            </div>
+          </div>
+          <div class="recipe-detail-header-right">
+            <img src="Assets/image 38.png" alt="Chef illustration" class="recipe-detail-chef-img">
+          </div>
+        </div>
+
+        <!-- Recipe Content Row (Split Layout) -->
+        <div class="recipe-detail-main-row">
+          <!-- Left side: Image -->
+          <div class="recipe-detail-img-col">
+            <div class="recipe-detail-img-wrapper">
+              <img src="Assets/tile 2.png" alt="Recipe Image" id="r-image" class="recipe-detail-main-img">
+              <div class="recipe-detail-badge-tag" id="r-badge-tag">Plant Based</div>
+            </div>
+          </div>
+
+          <!-- Right side: Ingredients card -->
+          <div class="recipe-detail-ingredients-card" id="r-ingredients-container">
+            <!-- Will be populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Instructions Section -->
+        <div class="recipe-detail-instructions-section">
+          <h2 class="instructions-section-heading" id="r-instructions-heading">Instructions – Let's Bake!</h2>
+          <div class="instructions-list" id="r-instructions-list">
+            <!-- Will be populated dynamically -->
+          </div>
+        </div>
+        
+        <!-- More Like This Slider -->
+        <div class="more-like-this-section">
+          <h2>More like this</h2>
+          <div class="more-like-this-grid" id="r-more-like-this-grid">
+            <!-- Prepopulated fallback cards -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- 9. FOOTER -->
   <footer class="footer" id="footer">
     <div class="container">
@@ -736,6 +812,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- API Key Config Modal -->
+  <div id="api-key-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      <h2>Anthropic API Key Setup</h2>
+      <p>Enter your Anthropic API Key to enable real-time recipe searches with Claude's web search tool. Your key is stored safely in your browser's local storage.</p>
+      <input type="password" id="api-key-input" placeholder="sk-ant-..." class="modal-input">
+      <div class="modal-actions">
+        <button class="btn btn-save-key" id="save-key-btn">Save API Key</button>
+        <button class="btn btn-clear-key" id="clear-key-btn">Clear Key</button>
+      </div>
+    </div>
+  </div>
 
   <script src="index.js"></script>
 </body>
