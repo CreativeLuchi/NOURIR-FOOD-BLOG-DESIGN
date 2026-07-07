@@ -378,7 +378,7 @@ const RECIPES_DB = {
       {
         step: 3,
         title: "Store",
-        instruction: "Stir in oil and salt, let it cool completely, and spoon into clean jars. Seal and freeze or keep refrigerated.",
+        instruction: "Stir in oil and salt, let it cool completely, and spoon into clean jars. Scale and freeze or keep refrigerated.",
         note: "Storing it with oil on top helps preserve it longer in the fridge."
       }
     ]
@@ -481,7 +481,7 @@ const RECIPES_DB = {
         step: 2,
         title: "Sauté the Goat Meat",
         instruction: "Sauté the shredded goat meat in a skillet with chopped onions, peppers, and suya spice for 10 minutes until aromatic and slightly charred.",
-        note: "You can use leftover cooked goat meat to save prep time."
+        note: "You can use leftover goat meat to save prep time."
       },
       {
         step: 3,
@@ -744,9 +744,14 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (recipeId === "search") {
         const lastSearch = localStorage.getItem("last_searched_recipe");
+        const loadingEl = document.getElementById("recipe-loading");
+        const isLoading = loadingEl && loadingEl.style.display === "flex";
+        
         if (lastSearch) {
           const parsed = JSON.parse(lastSearch);
           renderRecipeDetail(parsed);
+        } else if (isLoading) {
+          // Do nothing, let the loading spinner stay active
         } else {
           window.location.hash = "#";
         }
@@ -855,10 +860,6 @@ document.addEventListener("DOMContentLoaded", () => {
     items.forEach(item => {
       const card = document.createElement("div");
       card.className = "recipe-card";
-      card.addEventListener("click", () => {
-        window.location.hash = `#/recipe/${item.id}`;
-      });
-
       card.innerHTML = `
         <div class="recipe-img-container">
           <img src="${item.image}" alt="${item.title}" class="recipe-img">
@@ -876,55 +877,77 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const bindCardClicks = () => {
-    const homepageCards = document.querySelectorAll(".recipe-grid .recipe-card");
-    const recipeIds = Object.keys(RECIPES_DB);
-    homepageCards.forEach((card, idx) => {
-      if (recipeIds[idx]) {
-        card.style.cursor = "pointer";
-        card.addEventListener("click", () => {
-          window.location.hash = `#/recipe/${recipeIds[idx]}`;
-        });
+  // Delegated Click Handlers (Safe, dynamic, and bulletproof)
+  document.addEventListener("click", (e) => {
+    // 1. Check if it's a recipe-card click (homepage or more like this)
+    const card = e.target.closest(".recipe-card");
+    if (card) {
+      const titleEl = card.querySelector(".recipe-title");
+      if (titleEl) {
+        const titleText = titleEl.textContent.trim();
+        const matchedRecipe = Object.values(RECIPES_DB).find(
+          r => r.title.toLowerCase() === titleText.toLowerCase()
+        );
+        if (matchedRecipe) {
+          window.location.hash = `#/recipe/${matchedRecipe.id}`;
+          return;
+        }
       }
-    });
-
-    const highlightCard = document.querySelector(".todays-nourir-card");
-    if (highlightCard) {
-      highlightCard.style.cursor = "pointer";
-      highlightCard.addEventListener("click", () => {
-        window.location.hash = `#/recipe/peppered-skewers-masa`;
-      });
     }
 
-    const highlightBtn = document.querySelector(".btn-dive-in");
-    if (highlightBtn) {
-      highlightBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.location.hash = `#/recipe/peppered-skewers-masa`;
-      });
+    // 2. Check if it's the Today's Highlight card or button
+    const highlightCard = e.target.closest(".todays-nourir-card");
+    const highlightBtn = e.target.closest(".btn-dive-in");
+    if (highlightCard || highlightBtn) {
+      if (highlightBtn) e.preventDefault();
+      window.location.hash = `#/recipe/peppered-skewers-masa`;
+      return;
     }
-  };
-  bindCardClicks();
+  });
 
   // ==========================================================================
   // HYBRID SEARCH EXPERIENCE (Claude Web Search + TheMealDB + Local Generator)
   // ==========================================================================
   const searchInput = document.querySelector(".recipe-search-input");
   const searchIconBtn = document.querySelector(".recipe-search-icon");
+  const searchTrigger = document.querySelector(".search-trigger");
+
+  // Wire up the header search icon to scroll and focus search box
+  if (searchTrigger && searchInput) {
+    searchTrigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (window.location.hash.startsWith("#/recipe/")) {
+        window.location.hash = "#";
+        setTimeout(() => {
+          const recipesSection = document.getElementById("recipes");
+          if (recipesSection) recipesSection.scrollIntoView({ behavior: "smooth" });
+          searchInput.focus();
+        }, 150);
+      } else {
+        const recipesSection = document.getElementById("recipes");
+        if (recipesSection) recipesSection.scrollIntoView({ behavior: "smooth" });
+        searchInput.focus();
+      }
+    });
+  }
 
   const executeSearch = async (query) => {
     if (!query || query.trim() === "") return;
     
     localStorage.removeItem("last_searched_recipe");
 
-    // Route to search detail view immediately to show loading
-    window.location.hash = `#/recipe/search`;
-    document.getElementById("recipe-loading").style.display = "flex";
-    document.getElementById("recipe-detail-content").style.display = "none";
-    document.getElementById("loading-text").textContent = `Searching the web for real "${query}" recipe data...`;
+    // Set loading indicator first
+    const loadingEl = document.getElementById("recipe-loading");
+    const detailContentEl = document.getElementById("recipe-detail-content");
+    const loadingTextEl = document.getElementById("loading-text");
+    
+    if (loadingEl) loadingEl.style.display = "flex";
+    if (detailContentEl) detailContentEl.style.display = "none";
+    if (loadingTextEl) loadingTextEl.textContent = `Searching the web for real "${query}" recipe data...`;
 
-    // 1. Try to check if we can query the Anthropic Claude API (using Dev key in env or user key in storage)
-    // Vite loads env variables with VITE_ prefix.
+    // Now trigger routing
+    window.location.hash = `#/recipe/search`;
+
     const devApiKey = import.meta.env?.VITE_ANTHROPIC_API_KEY || "";
     const userApiKey = localStorage.getItem("anthropic_api_key") || "";
     const apiKey = userApiKey || devApiKey;
@@ -1082,7 +1105,6 @@ Return your response ONLY as a raw, valid JSON object matching the following str
   function generateLocalHeuristicRecipe(query) {
     const q = query.toLowerCase();
     
-    // Default values
     let title = query.charAt(0).toUpperCase() + query.slice(1);
     let description = `A healthy, modern fit-fam adaptation of the beloved classic ${query}. Perfect for nutritious eating.`;
     let diet = "Naija Fit-Fam";
@@ -1221,7 +1243,6 @@ Return your response ONLY as a raw, valid JSON object matching the following str
         }
       ];
     } else {
-      // General Healthy Recipe
       ingredients["Main Ingredients"] = [
         `500g of fresh ${query} base`,
         "1 red onion, sliced",
@@ -1269,6 +1290,18 @@ Return your response ONLY as a raw, valid JSON object matching the following str
       ingredients,
       instructions
     };
+  }
+
+  // Bind Search events
+  if (searchInput && searchIconBtn) {
+    searchIconBtn.addEventListener("click", () => {
+      executeSearch(searchInput.value);
+    });
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        executeSearch(searchInput.value);
+      }
+    });
   }
 
   // ==========================================================================
