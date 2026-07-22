@@ -188,6 +188,45 @@ h3 {
   box-shadow: 0 4px 20px rgba(78, 7, 11, 0.06);
 }
 
+/* Header Entrance Animations */
+@keyframes nav-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sticky-nav .logo {
+  opacity: 0;
+  animation: nav-slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.sticky-nav .nav-links > li {
+  opacity: 0;
+  animation: nav-slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sticky-nav .nav-links > li:nth-child(1) { animation-delay: 0.3s; }
+.sticky-nav .nav-links > li:nth-child(2) { animation-delay: 0.4s; }
+.sticky-nav .nav-links > li:nth-child(3) { animation-delay: 0.5s; }
+.sticky-nav .nav-links > li:nth-child(4) { animation-delay: 0.6s; }
+
+.sticky-nav .nav-actions > * {
+  opacity: 0;
+  animation: nav-slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sticky-nav .nav-actions > *:nth-child(1) { animation-delay: 0.7s; }
+.sticky-nav .nav-actions > *:nth-child(2) { animation-delay: 0.8s; }
+.sticky-nav .nav-actions > *:nth-child(3) { animation-delay: 0.9s; }
+.sticky-nav .nav-actions > *:nth-child(4) { animation-delay: 1.0s; }
+.sticky-nav .nav-actions > *:nth-child(5) { animation-delay: 1.1s; }
+
 .nav-container.twisted-nav {
   display: flex;
   justify-content: space-between;
@@ -355,7 +394,7 @@ h3 {
   left: 0;
   width: 100%;
   height: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 8 C6 8, 6 2, 12 2 C18 2, 18 8, 24 8 L24 12 L0 12 Z' fill='%23F83304'/%3E%3Cpath d='M0 8 C6 8, 6 2, 12 2 C18 2, 18 8, 24 8' fill='none' stroke='%23004810' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 4 C6 4, 6 10, 12 10 C18 10, 18 4, 24 4' fill='none' stroke='%23004810' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-size: 24px 12px;
   pointer-events: none;
@@ -365,65 +404,140 @@ h3 {
 /* --------------------------------------------------------------------------
    4. RESTORED HERO SECTION
    -------------------------------------------------------------------------- */
-.hero {
-  position: relative;
-  background-color: var(--color-primary-orange);
-  padding: 120px 0 100px 0;
-  height: 685px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
+.hero {
+  position: relative;
+  background-color: #FCF0E0; /* Solid background color */
+  padding: 0;
+  height: 720px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
   width: 100%;
 }
 
-.hero-content {
-  color: white;
+/* BACKGROUND MARQUEE TEXT */
+.hero-marquee-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.hero-marquee-line {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  display: flex;
+}
+
+.hero-marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.hero-marquee-text {
+  font-family: 'NT Wagner', var(--font-headings);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 1.1;
+  color: var(--color-primary-green, #004810);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  padding-right: 2rem;
+  user-select: none;
+}
+
+/* Scroll Animations */
+@keyframes marquee-left {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.hero-marquee-track.left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.hero-marquee-track.right {
+  animation: marquee-right 30s linear infinite;
+}
+
+/* FOREGROUND SINGLE IMAGE CONTAINER */
+.hero-stack-container {
+  position: relative;
   z-index: 2;
-}
-
-.hero-content h1 {
-  font-family: var(--font-headings);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.15;
-  margin-bottom: var(--spacing-sm);
-  font-weight: 700; /* Force bold style */
-}
-
-.hero-content p {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: var(--spacing-md);
-}
-
-.hero-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
-  position: relative;
-  height: 100%;
+  width: 100%;
+  max-width: 600px;
 }
 
-.hero-collage-img {
-  width: 115%;
+.hero-single-img {
+  display: block;
+  max-width: 100%;
   height: auto;
-  max-width: 900px;
-  max-height: 640px;
-  object-fit: contain;
-  transition: transform 0.4s ease;
+  width: clamp(280px, 45vw, 480px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+  user-select: none;
+  pointer-events: auto;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
+  animation: floatSingleItem 6s ease-in-out infinite;
 }
 
-.hero-collage-img:hover {
-  transform: scale(1.02);
+@keyframes floatSingleItem {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-single-img:hover {
+  transform: scale(1.03);
+  animation-play-state: paused;
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-track.left,
+  .hero-marquee-track.right {
+    animation: none !important;
+    transform: none !important;
+  }
+  .hero-marquee-track {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-single-img {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 .btn-hero-white {
@@ -1529,12 +1643,17 @@ h3 {
     grid-template-columns: 1fr;
     display: flex;
     flex-direction: column;
+    min-height: auto !important;
   }
   .todays-nourir-left {
-    padding: 40px 20px;
+    padding: 32px 16px !important;
+  }
+  .todays-nourir-card {
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
   }
   .todays-nourir-right {
-    padding: 60px 24px;
+    padding: 40px 16px !important;
   }
   .blog-container, .footer-grid {
     grid-template-columns: 1fr;
@@ -1553,47 +1672,136 @@ h3 {
   }
 }
 
+/* Mobile-only CTA helper */
+.mobile-cta-only {
+  display: none;
+}
+
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(78, 7, 11, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 @media (max-width: 900px) {
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-bg-white);
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 290px;
+    height: 100vh;
+    background-color: #FCF0E0; /* Theme cream background */
     flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-    border-bottom: 2px solid var(--color-primary-orange);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 72px 24px 40px 24px;
+    gap: 20px;
+    box-shadow: -8px 0 30px rgba(78, 7, 11, 0.15);
+    z-index: 10000;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-left: 1px solid rgba(78, 7, 11, 0.08);
   }
+  
   .nav-links.nav-active {
-    display: flex;
+    right: 0 !important;
   }
+  
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links > li > a {
+    font-size: 18px;
+    padding: 10px 0;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(78, 7, 11, 0.1);
+  }
+
+  .nav-chevron-img {
+    transition: transform 0.25s ease;
+  }
+
+  .dropdown.dropdown-open .nav-chevron-img {
+    transform: rotate(90deg);
+  }
+
   .dropdown-menu {
     position: static;
     transform: none;
     opacity: 1;
     visibility: visible;
     box-shadow: none;
-    background: transparent;
-    padding: 0;
-    margin-top: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    padding: 6px 0;
+    margin-top: 8px;
     border: none;
     display: none;
+    width: 100%;
   }
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    transform: none;
+
+  .dropdown.dropdown-open .dropdown-menu {
+    display: block !important;
   }
+
   .dropdown-menu::before {
     display: none;
   }
+
   .dropdown-menu li a {
-    padding: 6px 20px;
+    padding: 10px 20px;
+    font-size: 15px;
   }
+
   .twisted-menu {
     display: block;
+    cursor: pointer;
+  }
+
+  .menu-toggle.open {
+    position: fixed;
+    top: 14px;
+    right: 20px;
+    z-index: 10001;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-actions .btn-create-plan {
+    display: none !important; /* Hide desktop button in header */
+  }
+  .mobile-cta-only {
+    display: block !important; /* Show CTA inside mobile drawer */
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-container.twisted-nav {
+    padding: 12px 16px !important;
+  }
+  .logo {
+    font-size: 26px !important;
+  }
+  .nav-actions {
+    gap: 8px !important;
+  }
+  .icon-btn {
+    padding: 6px !important;
   }
 }
 
@@ -1602,11 +1810,24 @@ h3 {
     grid-template-columns: 1fr;
   }
   .categories-row {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    width: max-content !important;
   }
-  .hero-content h1 {
-    font-size: 2.25rem;
+  .hero {
+    height: auto !important;
+    min-height: 480px !important;
+    padding: 60px 16px 40px 16px !important;
+  }
+  .hero-marquee-text {
+    font-size: clamp(2rem, 10vw, 4rem) !important;
+  }
+  .hero-stack-container {
+    max-width: 320px !important;
+  }
+  .hero-single-img {
+    width: 100% !important;
   }
   .footer-grid {
     gap: 30px;
@@ -1690,7 +1911,7 @@ h3 {
 }
 
 .btn-save-recipe {
-  background-color: var(--color-text-dark, #4E070B) !important;
+  background-color: var(--color-primary-orange, #F83304) !important;
   color: white !important;
   font-weight: 700;
   padding: 14px 32px;
@@ -1701,7 +1922,7 @@ h3 {
   text-decoration: none;
   font-family: var(--font-body);
   font-size: 16px;
-  box-shadow: 0 4px 15px rgba(78, 7, 11, 0.15);
+  box-shadow: 0 4px 15px rgba(248, 51, 4, 0.15);
   transition: 0.3s ease;
   border: none;
   cursor: pointer;
@@ -1710,7 +1931,7 @@ h3 {
 .btn-save-recipe:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(78, 7, 11, 0.25);
+  box-shadow: 0 6px 20px rgba(248, 51, 4, 0.25);
 }
 
 .recipe-detail-chef-img {
@@ -1749,22 +1970,11 @@ h3 {
 }
 
 .recipe-detail-badge-tag {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  background-color: var(--color-primary-orange, #F83304);
-  color: white;
-  font-family: var(--font-headings);
-  font-size: 16px;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(248, 51, 4, 0.3);
-  text-transform: capitalize;
+  display: none;
 }
 
 .recipe-detail-ingredients-card {
-  background-color: var(--color-text-dark, #4E070B);
+  background-color: #330507;
   color: white;
   border-radius: 24px;
   padding: 40px;
@@ -2090,3 +2300,2826 @@ h3 {
   }
 }
 
+/* ==========================================================================
+   MEAL PLANNER & MARKET SWAPS STYLES
+   ========================================================================== */
+
+.meal-planner-section {
+  padding: 80px 0;
+  background-color: var(--color-bg-cream);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.meal-planner-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.planner-title-group {
+  margin-bottom: 24px;
+}
+
+.planner-main-title {
+  font-family: var(--font-headings);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-primary-green);
+  margin-bottom: 8px;
+}
+
+.planner-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--color-muted-grey);
+}
+
+/* Budget Control Card */
+.budget-control-card {
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-primary-green);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.budget-selectors {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.control-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-dark-burgundy);
+  font-family: var(--font-headings);
+}
+
+.budget-pill-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.budget-pill {
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-text-dark);
+  background: transparent;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  color: var(--color-text-dark);
+}
+
+.budget-pill:hover {
+  background-color: rgba(0, 72, 16, 0.05);
+  transform: translateY(-1px);
+}
+
+.budget-pill.active {
+  background-color: var(--color-primary-green);
+  color: white;
+  border-color: var(--color-primary-green);
+}
+
+.custom-budget-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--color-text-dark);
+  border-radius: 100px;
+  padding: 6px 16px;
+  max-width: 140px;
+  background: white;
+}
+
+.custom-budget-input-wrapper span {
+  font-weight: 700;
+  margin-right: 4px;
+  color: var(--color-text-dark);
+}
+
+.custom-budget-input-wrapper input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+}
+
+/* Hide arrows in input */
+.custom-budget-input-wrapper input::-webkit-outer-spin-button,
+.custom-budget-input-wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.custom-budget-input-wrapper input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.budget-summary-panel {
+  background: var(--color-card-bg);
+  padding: 16px 24px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.budget-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-badge.budget-ok {
+  background-color: #EDFBBE;
+  color: var(--color-primary-green);
+}
+
+.status-badge.budget-warning {
+  background-color: #FFE69A;
+  color: #B45309;
+}
+
+.status-badge.budget-danger {
+  background-color: #FEE2E2;
+  color: var(--color-primary-orange);
+}
+
+.budget-progress-bar-container {
+  height: 12px;
+  background: #E5DDD3;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.budget-progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  background-color: var(--color-primary-green);
+  transition: width 0.4s ease, background-color 0.3s ease;
+}
+
+.planner-quick-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn-clear {
+  color: var(--color-primary-orange);
+  border: 2px solid var(--color-primary-orange);
+  font-weight: 700;
+}
+
+.btn-clear:hover {
+  background-color: rgba(248, 51, 4, 0.05);
+}
+
+/* Split Workspace */
+.planner-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 32px;
+  align-items: start;
+}
+
+.workspace-heading {
+  font-family: var(--font-headings);
+  font-size: 1.75rem;
+  color: var(--color-primary-green);
+  margin-bottom: 20px;
+}
+
+.weekly-calendar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.day-card {
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-bg-cream);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.day-title {
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  color: var(--color-primary-green);
+}
+
+.day-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-muted-grey);
+}
+
+.day-stats .cost {
+  color: var(--color-primary-orange);
+}
+
+.meal-slots-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-slot {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+}
+
+.meal-slot:last-child {
+  border-bottom: none;
+}
+
+.meal-slot-label {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--color-dark-burgundy);
+}
+
+.meal-slot-content {
+  position: relative;
+}
+
+.meal-slot-item {
+  background: var(--color-card-bg);
+  border-radius: var(--border-radius-sm);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.meal-slot-item:hover {
+  border-color: rgba(0, 72, 16, 0.15);
+}
+
+.meal-slot-item-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text-dark);
+}
+
+.meal-slot-item-meta {
+  font-size: 12px;
+  color: var(--color-muted-grey);
+  margin-left: 12px;
+  background: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.meal-slot-item-meta.cost {
+  color: var(--color-primary-orange);
+}
+
+.btn-slot-delete {
+  color: var(--color-primary-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: transform 0.2s ease;
+}
+
+.btn-slot-delete:hover {
+  transform: scale(1.15);
+}
+
+.empty-slot {
+  border: 1.5px dashed #D1C7BD;
+  border-radius: var(--border-radius-sm);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-muted-grey);
+  transition: all var(--transition-fast);
+  gap: 6px;
+}
+
+.empty-slot:hover {
+  border-color: var(--color-primary-orange);
+  background-color: rgba(248, 51, 4, 0.03);
+  color: var(--color-primary-orange);
+}
+
+/* Sidebar Column */
+.planner-sidebar-column {
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+}
+
+.sidebar-tab-headers {
+  display: flex;
+  border-bottom: 2px solid var(--color-bg-cream);
+  margin-bottom: 20px;
+}
+
+.sidebar-tab-btn {
+  flex: 1;
+  padding: 12px 6px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  border-bottom: 3px solid transparent;
+  color: var(--color-muted-grey);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.sidebar-tab-btn.active {
+  color: var(--color-primary-orange);
+  border-bottom-color: var(--color-primary-orange);
+}
+
+.sidebar-tab-btn:hover:not(.active) {
+  color: var(--color-text-dark);
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-desc-text {
+  font-size: 12px;
+  color: var(--color-muted-grey);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.sidebar-recipes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-bottom: 20px;
+}
+
+/* Custom Scrollbar for side list */
+.sidebar-recipes-list::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar-recipes-list::-webkit-scrollbar-track {
+  background: #FCF0E0;
+  border-radius: 5px;
+}
+.sidebar-recipes-list::-webkit-scrollbar-thumb {
+  background: #C4B9AC;
+  border-radius: 5px;
+}
+
+.sidebar-recipe-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.sidebar-recipe-item:hover {
+  transform: translateX(2px);
+  border-color: rgba(0, 72, 16, 0.1);
+}
+
+.sidebar-recipe-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.sidebar-recipe-info {
+  flex: 1;
+}
+
+.sidebar-recipe-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-text-dark);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.sidebar-recipe-meta {
+  font-size: 11px;
+  color: var(--color-muted-grey);
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-recipe-meta .cost {
+  color: var(--color-primary-orange);
+  font-weight: 700;
+}
+
+.btn-sidebar-add {
+  background-color: var(--color-primary-green);
+  color: white;
+  border-radius: 50px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-sidebar-add:hover {
+  background-color: var(--color-primary-orange);
+  transform: translateY(-1px);
+}
+
+.macro-search-box {
+  margin-bottom: 16px;
+}
+
+.macro-search-box input {
+  width: 100%;
+  border-radius: 100px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 16px;
+  outline: none;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.macro-search-box input:focus {
+  border-color: var(--color-primary-orange);
+}
+
+.macro-lookup-results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 380px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.macro-lookup-item {
+  background: var(--color-card-bg);
+  border-radius: var(--border-radius-sm);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.macro-lookup-info {
+  flex: 1;
+}
+
+.macro-lookup-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-text-dark);
+  margin-bottom: 2px;
+}
+
+.macro-lookup-details {
+  font-size: 11px;
+  color: var(--color-muted-grey);
+}
+
+.macro-lookup-details span {
+  margin-right: 6px;
+}
+
+/* Nutrition Summary Card */
+.nutrition-summary-card {
+  margin-top: 24px;
+  border-top: 2px solid var(--color-bg-cream);
+  padding-top: 20px;
+}
+
+.nutrition-summary-card h3 {
+  font-family: var(--font-headings);
+  font-size: 1.2rem;
+  color: var(--color-primary-green);
+  margin-bottom: 16px;
+}
+
+.macro-summary-flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.macro-summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.macro-circle-container {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 6px solid var(--color-accent-lime);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  background: var(--color-card-bg);
+}
+
+.macro-circle-container span:first-child {
+  font-size: 20px;
+  font-family: var(--font-headings);
+  color: var(--color-primary-green);
+}
+
+.macro-circle-container .macro-unit {
+  font-size: 10px;
+  color: var(--color-muted-grey);
+}
+
+.macro-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-muted-grey);
+  margin-top: 6px;
+  text-align: center;
+}
+
+.macro-bars-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.macro-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.macro-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.macro-bar-track {
+  height: 6px;
+  background: #E5DDD3;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.macro-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.macro-bar-fill.carbs {
+  background-color: var(--color-accent-yellow);
+}
+
+.macro-bar-fill.protein {
+  background-color: var(--color-accent-lime);
+}
+
+.macro-bar-fill.fat {
+  background-color: var(--color-primary-orange);
+}
+
+/* Saved Plans section */
+.saved-plans-section {
+  margin-top: 40px;
+  border-top: 2px solid var(--color-bg-white);
+  padding-top: 30px;
+}
+
+.saved-plans-section h2 {
+  font-family: var(--font-headings);
+  font-size: 1.75rem;
+  color: var(--color-primary-green);
+  margin-bottom: 20px;
+}
+
+.saved-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.saved-plan-card {
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.saved-plan-card h3 {
+  font-family: var(--font-headings);
+  font-size: 1.15rem;
+  color: var(--color-primary-green);
+}
+
+.saved-plan-meta {
+  font-size: 12px;
+  color: var(--color-muted-grey);
+}
+
+.saved-plan-meta div {
+  margin-bottom: 4px;
+}
+
+.saved-plan-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-plan-load {
+  background-color: var(--color-primary-green);
+  color: white;
+  padding: 6px 16px;
+  font-size: 12px;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.btn-plan-load:hover {
+  background-color: var(--color-primary-orange);
+}
+
+.btn-plan-delete {
+  color: var(--color-primary-orange);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-plan-delete:hover {
+  text-decoration: underline;
+}
+
+/* NAIJA SWAP BOX */
+.recipe-swap-box {
+  margin-bottom: 24px;
+  background: rgba(206, 246, 70, 0.12);
+  border: 2px dashed var(--color-accent-lime);
+  border-radius: var(--border-radius-md);
+  padding: 16px 20px;
+  animation: pulseSwapBorder 2.5s infinite;
+}
+
+@keyframes pulseSwapBorder {
+  0% {
+    border-color: var(--color-accent-lime);
+    box-shadow: 0 0 0 0px rgba(206, 246, 70, 0.2);
+  }
+  50% {
+    border-color: var(--color-primary-orange);
+    box-shadow: 0 0 10px 2px rgba(248, 51, 4, 0.15);
+  }
+  100% {
+    border-color: var(--color-accent-lime);
+    box-shadow: 0 0 0 0px rgba(206, 246, 70, 0.2);
+  }
+}
+
+.swap-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.swap-header h4 {
+  font-family: var(--font-headings);
+  font-size: 1.1rem;
+  color: var(--color-primary-green);
+}
+
+.swap-icon {
+  font-size: 1.25rem;
+}
+
+.swap-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.swap-body p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-body);
+  flex: 1;
+}
+
+.btn-swap-action {
+  background-color: var(--color-primary-green);
+  color: white !important;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-swap-action:hover {
+  background-color: var(--color-primary-orange);
+}
+
+/* Category Selected Custom dash border */
+.category-tag.tag-selected[data-category="Naija Remasters"] {
+  border: 2px solid var(--color-primary-orange) !important;
+}
+
+/* Responsive for Planner */
+@media (max-width: 1024px) {
+  .planner-workspace-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .planner-sidebar-column {
+    position: relative;
+    top: 0;
+  }
+}
+
+.planner-workspace-grid.sidebar-collapsed {
+  grid-template-columns: 1fr;
+}
+
+.planner-workspace-grid.sidebar-collapsed .planner-sidebar-column {
+  display: none;
+}
+
+/* ==========================================================================
+   ARTICLES SECTION & DETAIL VIEW STYLES
+   ========================================================================== */
+
+.articles-section {
+  padding: 80px 0;
+  background-color: var(--color-bg-cream);
+  min-height: 80vh;
+}
+
+.articles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.articles-categories-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.articles-category-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.articles-cat-pill {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.articles-cat-pill:hover,
+.articles-cat-pill.active {
+  background-color: var(--color-primary-orange);
+  color: white;
+  border-color: var(--color-primary-orange);
+  transform: translateY(-1px);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.article-card .recipe-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Article Read Page */
+.article-read-section {
+  padding: 80px 0;
+  background-color: var(--color-bg-white);
+  min-height: 80vh;
+}
+
+.article-read-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.article-read-header {
+  margin-bottom: 40px;
+}
+
+.article-read-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-muted-grey);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.article-read-title {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.article-read-author-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px 0;
+}
+
+.article-author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #FCF0E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #4E070B;
+}
+
+.article-author-info h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 2px;
+}
+
+.article-author-info p {
+  font-size: 12px;
+  color: var(--color-muted-grey);
+}
+
+.article-read-hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+
+.article-read-body {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #2D2D2D;
+}
+
+.article-read-body p {
+  margin-bottom: 24px;
+}
+
+.article-read-body h2 {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: 1.8rem;
+  color: var(--color-text-dark);
+  margin: 40px 0 20px 0;
+}
+
+.article-read-body h3 {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+  margin: 30px 0 15px 0;
+}
+
+.article-read-body ul, .article-read-body ol {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.article-read-body li {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 991px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. SCROLL REVEAL TEXT ANIMATION (ABOUT SECTION)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll-driven animations (SDA) for supporting browsers (Chrome/Edge 115+, Safari 19+) */
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes reveal-up-fade {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-text-wrapper > * {
+      animation: reveal-up-fade auto linear forwards;
+      animation-timeline: view();
+      animation-fill-mode: both;
+    }
+
+    .about-text-wrapper > h2 {
+      animation-range: entry 10% entry 45%;
+    }
+
+    .about-text-wrapper > p:nth-of-type(1) {
+      animation-range: entry 15% entry 50%;
+    }
+
+    .about-text-wrapper > p:nth-of-type(2) {
+      animation-range: entry 20% entry 55%;
+    }
+
+    .about-text-wrapper > div {
+      animation-range: entry 25% entry 60%;
+    }
+  }
+
+  /* Fallback styles for browsers that do not support CSS Scroll-driven animations (e.g. Firefox) */
+  .about-text-wrapper > *.reveal-fallback-init {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: transform, opacity;
+  }
+
+  .about-text-wrapper > *.reveal-fallback-init.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered transition delays for the fallback reveal */
+  .about-text-wrapper > h2.reveal-fallback-init.revealed {
+    transition-delay: 0.1s;
+  }
+  .about-text-wrapper > p:nth-of-type(1).reveal-fallback-init.revealed {
+    transition-delay: 0.25s;
+  }
+  .about-text-wrapper > p:nth-of-type(2).reveal-fallback-init.revealed {
+    transition-delay: 0.4s;
+  }
+  .about-text-wrapper > div.reveal-fallback-init.revealed {
+    transition-delay: 0.55s;
+  }
+}
+
+/* ==========================================================================
+   SCROLL-TRIGGERED ENTRANCE ANIMATIONS FOR BRING RECIPES TO LIFE SECTION
+   ========================================================================== */
+
+/* 1. Headline - scale 0.8 to 1 with bounce overshoot, fade-in, upward translateY */
+.recipes-section .section-header h2 {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
+}
+
+.js-active .recipes-section:not(.in-view) .section-header h2 {
+  opacity: 0;
+  transform: translateY(24px) scale(0.8);
+}
+
+/* 2. Search Bar - fade in, slide up 15px, no bounce, 120ms delay */
+.recipes-section .recipe-search-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, 
+              transform 0.5s ease-out;
+  transition-delay: 120ms;
+  will-change: opacity, transform;
+}
+
+.js-active .recipes-section:not(.in-view) .recipe-search-container {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+/* 3. Category Pills - staggered group, slide from left, 70ms step delay */
+.recipes-section .category-tag {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.35s ease-out, 
+              transform 0.35s ease-out;
+  will-change: opacity, transform;
+}
+
+.recipes-section .category-tag:nth-child(1) { transition-delay: 240ms; }
+.recipes-section .category-tag:nth-child(2) { transition-delay: 310ms; }
+.recipes-section .category-tag:nth-child(3) { transition-delay: 380ms; }
+.recipes-section .category-tag:nth-child(4) { transition-delay: 450ms; }
+.recipes-section .category-tag:nth-child(5) { transition-delay: 520ms; }
+.recipes-section .category-tag:nth-child(6) { transition-delay: 590ms; }
+.recipes-section .category-tag:nth-child(7) { transition-delay: 660ms; }
+.recipes-section .category-tag:nth-child(8) { transition-delay: 730ms; }
+
+.js-active .recipes-section:not(.in-view) .category-tag {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+/* 4. Recipe Cards (first 4 cards) - alternating directions, 100ms stagger, springy ease-out */
+.recipes-section .recipe-card:nth-child(-n+4) {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.65s cubic-bezier(0.25, 0.8, 0.25, 1.15), 
+              transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1.15);
+  will-change: opacity, transform;
+}
+
+.recipes-section .recipe-card:nth-child(1) { transition-delay: 500ms; }
+.recipes-section .recipe-card:nth-child(2) { transition-delay: 600ms; }
+.recipes-section .recipe-card:nth-child(3) { transition-delay: 700ms; }
+.recipes-section .recipe-card:nth-child(4) { transition-delay: 800ms; }
+
+.js-active .recipes-section:not(.in-view) .recipe-card:nth-child(-n+4):nth-child(odd) {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.js-active .recipes-section:not(.in-view) .recipe-card:nth-child(-n+4):nth-child(even) {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+/* Accessibility - Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .recipes-section .section-header h2,
+  .recipes-section .recipe-search-container,
+  .recipes-section .category-tag,
+  .recipes-section .recipe-card:nth-child(-n+4) {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   CREATE MEAL PLAN MODAL STYLES
+   ========================================================================== */
+.meal-plan-modal-content {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  max-width: 650px;
+  width: 90%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(78, 7, 11, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.modal-progress-container {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.modal-progress-bar {
+  height: 6px;
+  background: #E5DDD3;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.modal-progress-fill {
+  height: 100%;
+  background-color: var(--color-primary-green);
+  width: 20%;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  margin-top: -16px;
+}
+
+.step-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #E5DDD3;
+  color: var(--color-muted-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid white;
+  transition: all 0.2s ease;
+}
+
+.step-dot.active {
+  background: var(--color-primary-green);
+  color: white;
+}
+
+.step-dot.completed {
+  background: var(--color-accent-lime);
+  color: var(--color-primary-green);
+}
+
+.modal-encouraging-hint {
+  position: absolute;
+  top: 48px;
+  right: 32px;
+  background: var(--color-accent-lime);
+  color: var(--color-primary-green);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: opacity 0.25s ease-out;
+  z-index: 10;
+}
+
+.modal-steps-slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  flex: 1;
+}
+
+.modal-steps-slider {
+  display: flex;
+  width: 500%; /* 5 steps */
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-container {
+  width: 20%;
+  flex-shrink: 0;
+  padding: 8px 4px;
+  box-sizing: border-box;
+  opacity: 0.1;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+  max-height: 52vh;
+  overflow-y: auto;
+}
+
+.step-container.active-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step-title {
+  font-family: var(--font-headings);
+  color: var(--color-primary-green);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.step-desc {
+  font-family: var(--font-body);
+  color: var(--color-muted-grey);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+/* Step 1 Duration cards */
+.duration-cards-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 576px) {
+  .duration-cards-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+.duration-card {
+  background: var(--color-card-bg);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.duration-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(78, 7, 11, 0.05);
+  border-color: rgba(0, 72, 16, 0.15);
+}
+
+.duration-card.active {
+  border-color: var(--color-primary-green);
+  background: white;
+  box-shadow: 0 12px 30px rgba(0, 72, 16, 0.06);
+}
+
+.duration-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--color-accent-lime);
+  color: var(--color-primary-green);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 40px;
+}
+
+.duration-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.duration-card h3 {
+  font-family: var(--font-headings);
+  color: var(--color-primary-green);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.duration-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+  line-height: 1.4;
+}
+
+/* Step 2 Budget select inside modal */
+.budget-selectors-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.custom-budget-input-container {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-budget-input-container label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* Step 3 Preferences switch toggles */
+.preferences-toggles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.pref-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--color-card-bg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.pref-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.pref-text h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 4px;
+}
+
+.pref-text p {
+  font-size: 0.8rem;
+  color: var(--color-muted-grey);
+  line-height: 1.3;
+}
+
+.pref-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.pref-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pref-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E5DDD3;
+  transition: .25s;
+  border-radius: 34px;
+}
+
+.pref-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .25s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input:checked + .pref-slider {
+  background-color: var(--color-primary-green);
+}
+
+input:checked + .pref-slider:before {
+  transform: translateX(22px);
+}
+
+/* Step 4 Meals review list */
+.meals-list-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 38vh;
+  padding-right: 4px;
+}
+
+.modal-meal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--color-card-bg);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.modal-meal-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.modal-meal-day-tag {
+  background: var(--color-primary-green);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 40px;
+  text-transform: uppercase;
+  min-width: 50px;
+  text-align: center;
+}
+
+.modal-meal-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-text-dark);
+}
+
+.modal-meal-cals {
+  font-size: 11px;
+  color: var(--color-muted-grey);
+  margin-left: 8px;
+}
+
+.modal-meal-cost {
+  font-size: 11px;
+  color: var(--color-primary-orange);
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.modal-meal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-modal-meal-swap {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.btn-modal-meal-swap:hover {
+  text-decoration: underline;
+}
+
+/* Manual add mode in Step 4 */
+.manual-add-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.manual-add-recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-height: 30vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+@media (max-width: 576px) {
+  .manual-add-recipes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-recipe-pick-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.modal-recipe-pick-card:hover {
+  border-color: var(--color-primary-green);
+  background: var(--color-card-bg);
+}
+
+.modal-recipe-pick-card.added {
+  border-color: var(--color-accent-lime);
+  background: rgba(206, 246, 70, 0.05);
+}
+
+.modal-recipe-pick-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.modal-recipe-pick-info {
+  flex: 1;
+}
+
+.modal-recipe-pick-title {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.modal-recipe-pick-meta {
+  font-size: 10px;
+  color: var(--color-muted-grey);
+}
+
+.modal-recipe-pick-meta .cost {
+  color: var(--color-primary-orange);
+  font-weight: 700;
+}
+
+.btn-recipe-pick-add {
+  background-color: var(--color-primary-green);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.modal-recipe-pick-card.added .btn-recipe-pick-add {
+  background-color: var(--color-accent-lime);
+  color: var(--color-primary-green);
+}
+
+/* Step 5 Confirm summary card */
+.confirm-summary-card {
+  background: var(--color-card-bg);
+  border-radius: var(--border-radius-md);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  border-bottom: 1.5px solid rgba(78, 7, 11, 0.04);
+  padding-bottom: 8px;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-row.summary-total-row {
+  border-top: 2px dashed rgba(78, 7, 11, 0.08);
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary-green);
+  margin-top: 4px;
+}
+
+.summary-label {
+  font-weight: 600;
+}
+
+.summary-value {
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
+
+/* Submodal close confirmation */
+.plan-submodal-overlay {
+  background-color: rgba(78, 7, 11, 0.4) !important;
+}
+
+.plan-confirm-content {
+  background: white;
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  max-width: 400px;
+  width: 85%;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+
+.plan-confirm-content h3 {
+  font-family: var(--font-headings);
+  color: var(--color-primary-green);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.plan-confirm-content p {
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.confirm-actions button {
+  width: 100%;
+}
+
+.modal-nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+}
+
+/* In-Modal Reveal Animation Container */
+.modal-reveal-container {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.meal-plan-modal-content.modal-animating {
+  overflow: visible !important;
+}
+
+.reveal-title {
+  font-family: var(--font-headings);
+  color: var(--color-primary-green);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 40px;
+  animation: revealTitleScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes revealTitleScale {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.reveal-basket-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+  z-index: 10;
+}
+
+.reveal-basket {
+  display: block;
+  animation: basketBounce 1s infinite alternate ease-in-out;
+}
+
+@keyframes basketBounce {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.basket-shadow {
+  width: 120px;
+  height: 10px;
+  background: rgba(0, 72, 16, 0.15);
+  border-radius: 50%;
+  margin: 10px auto 0 auto;
+  animation: shadowScale 1s infinite alternate ease-in-out;
+}
+
+@keyframes shadowScale {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(0.8); opacity: 0.4; }
+}
+
+/* Floating Animated Callout Plates & Labels */
+.reveal-food-plate {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 2.5px solid var(--color-primary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 8px 24px rgba(78, 7, 11, 0.12);
+  z-index: 50;
+  transition: transform 0.2s ease;
+}
+
+.reveal-food-plate:hover {
+  transform: scale(1.1);
+}
+
+.reveal-food-label {
+  position: absolute;
+  background: var(--color-card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  opacity: 0;
+  z-index: 49;
+}
+
+/* Settle View styling */
+.reveal-settle-view {
+  margin-top: 20px;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.settle-summary {
+  margin-bottom: 24px;
+}
+
+.settle-summary h2 {
+  font-family: var(--font-headings);
+  color: var(--color-primary-green);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.settle-summary p {
+  color: var(--color-text-body);
+  font-size: 1.1rem;
+}
+
+.settle-summary strong {
+  color: var(--color-primary-orange);
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .modal-steps-slider {
+    transition: none !important;
+  }
+  .step-container {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal-basket {
+    animation: none !important;
+  }
+  .basket-shadow {
+    animation: none !important;
+  }
+  .reveal-title {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   ACTIVE MEAL PLAN & SAVED RECIPES PAGE STYLES
+   ========================================================================== */
+.active-plan-section {
+  background-color: #FCF0E0;
+  padding: 40px 0 60px 0;
+  border-bottom: 1.5px solid rgba(0, 72, 16, 0.05);
+}
+
+.active-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.active-plan-title {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #4E070B;
+  margin: 0;
+  font-weight: 700;
+}
+
+.active-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-orange) rgba(78, 7, 11, 0.05);
+}
+
+.active-plan-grid::-webkit-scrollbar,
+.week-days-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.active-plan-grid::-webkit-scrollbar-track,
+.week-days-container::-webkit-scrollbar-track {
+  background: rgba(78, 7, 11, 0.03);
+  border-radius: 10px;
+}
+
+.active-plan-grid::-webkit-scrollbar-thumb,
+.week-days-container::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-orange);
+  border-radius: 10px;
+}
+
+.week-days-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-orange) rgba(78, 7, 11, 0.05);
+}
+
+/* Meal Plan Card Block View */
+.meal-plan-block-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(78, 7, 11, 0.03);
+  border: 1.5px solid rgba(78, 7, 11, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.meal-plan-block-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(78, 7, 11, 0.06);
+  border-color: rgba(78, 7, 11, 0.1);
+}
+
+.meal-plan-block-img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  background-color: #f5f5f5;
+}
+
+.meal-plan-block-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.meal-plan-block-title {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: 1.15rem;
+  color: #4E070B;
+  margin: 0;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.meal-plan-block-tag {
+  font-size: 0.85rem;
+  color: #7d7d7d;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meal-plan-block-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #7d7d7d;
+}
+
+.meal-plan-block-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Saved Recipes Section */
+.saved-recipes-page-section {
+  padding: 60px 0;
+  background-color: white;
+}
+
+.saved-recipes-page-title {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: #4E070B;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.saved-recipes-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Scroll-jacked Pinned Horizontal Carousel */
+.horizontal-scroll-section {
+  position: relative;
+  width: 100%;
+  height: 300vh; /* 3 cards, 100vh scroll travel per card */
+}
+
+.sticky-carousel-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-cards-row {
+  display: flex;
+  flex-direction: row;
+  width: 300%; /* 3 cards * 100vw */
+  height: 100%;
+  will-change: transform;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.card-left-img {
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-right-content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px 60px 0 60px;
+  box-sizing: border-box;
+}
+
+.card-text-wrapper {
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-text-wrapper h2 {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.card-text-wrapper p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.card-illustration {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  max-height: 45vh;
+  width: auto;
+  object-fit: contain;
+  align-self: center;
+}
+
+/* Card Specific Styling */
+.card-green {
+  background-color: var(--color-primary-green);
+}
+.card-green .card-text-wrapper {
+  color: white;
+}
+
+.card-lightgreen {
+  background-color: #FDC702;
+}
+.card-lightgreen .card-text-wrapper {
+  color: #4E070B;
+}
+
+.card-orange {
+  background-color: var(--color-primary-orange);
+}
+.card-orange .card-text-wrapper {
+  color: white;
+}
+
+/* Flex layout helper for cards with illustrations */
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Responsive & Prefers-Reduced-Motion Rules */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .horizontal-scroll-section {
+    height: auto !important;
+  }
+  .sticky-carousel-container {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .carousel-cards-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+  }
+  .carousel-card {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 60vh;
+    flex-direction: column !important;
+  }
+  .card-left-img {
+    width: 100% !important;
+    height: 240px !important;
+  }
+  .card-right-content {
+    width: 100% !important;
+    height: auto !important;
+    padding: 32px 20px !important;
+  }
+  .carousel-card h2 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+  .carousel-card .card-illustration {
+    max-height: 180px !important;
+    margin-top: 16px !important;
+    width: auto !important;
+    align-self: center !important;
+  }
+}
+
+/* Nourir Swap Section styling */
+.nourir-swap-section {
+  background-color: var(--color-bg-cream);
+  padding: 30px 0;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.swap-carousel-container {
+  position: relative;
+  max-width: 950px;
+  width: 100%;
+  height: 480px;
+  margin: 0 auto;
+}
+
+.swap-frame-spot {
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  z-index: 2; /* Sits behind the active images */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scallop-outline {
+  width: 100%;
+  height: 100%;
+}
+
+.outline-yellow {
+  fill: #FFD54F;
+}
+
+.outline-red {
+  fill: #F83203;
+}
+
+.spot-center {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+}
+
+.spot-left {
+  left: 15%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+}
+
+.spot-right {
+  left: 85%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+}
+
+.swap-connector-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 15;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.swap-connector-arrow:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.arrow-left {
+  left: 32.5%;
+  transform: translate(-50%, -50%) rotate(0deg); /* Points left */
+}
+
+.arrow-left:hover {
+  transform: translate(-50%, -50%) scale(1.15) rotate(0deg);
+}
+
+.arrow-right {
+  left: 67.5%;
+  transform: translate(-50%, -50%) rotate(180deg); /* Points right */
+}
+
+.arrow-right:hover {
+  transform: translate(-50%, -50%) scale(1.15) rotate(180deg);
+}
+
+/* Image Track */
+.swap-images-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.swap-image-card {
+  position: absolute;
+  top: 50%;
+  mask-image: url('Assets/Star 2.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('Assets/Star 2.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, left, width, height;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.swap-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dynamic State Styles for conveyor rotation (slightly smaller than frame spots to sit inside as a border) */
+.state-center {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  opacity: 1;
+  z-index: 8;
+  pointer-events: auto;
+}
+
+.state-left {
+  left: 15%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  z-index: 6;
+  pointer-events: auto;
+}
+
+.state-right {
+  left: 85%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  z-index: 6;
+  pointer-events: auto;
+}
+
+.state-out-left {
+  left: -15%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  z-index: 4;
+}
+
+.state-out-right {
+  left: 115%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  z-index: 4;
+}
+
+/* Responsive scaling down */
+@media (max-width: 768px) {
+  .swap-carousel-container {
+    transform: scale(0.85);
+    transform-origin: center center;
+    height: 340px;
+  }
+}
+
+@media (max-width: 580px) {
+  .swap-carousel-container {
+    transform: scale(0.65);
+    height: 260px;
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .swap-carousel-container {
+    transform: scale(0.5);
+    height: 200px;
+    margin-top: -50px;
+    margin-bottom: -50px;
+  }
+}
+
+/* ==========================================================================
+   SCATTERED SAVED MEAL PLANS PAGE STYLES
+   ========================================================================== */
+.saved-plans-page-section {
+  position: relative;
+  background-color: #FCF0E0;
+  padding: 60px 0 100px 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.saved-plans-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.decor-ingredient {
+  position: absolute;
+}
+
+.decor-tomato {
+  top: 15%;
+  left: 8%;
+  animation: decor-drift-1 12s ease-in-out infinite;
+}
+
+.decor-pepper {
+  top: 60%;
+  left: 12%;
+  animation: decor-drift-2 14s ease-in-out infinite;
+}
+
+.decor-orange {
+  top: 25%;
+  right: 10%;
+  animation: decor-drift-2 11s ease-in-out infinite;
+}
+
+.decor-leaf {
+  top: 70%;
+  right: 15%;
+  animation: decor-drift-1 13s ease-in-out infinite;
+}
+
+/* Scatter cards wrapper */
+.saved-plans-scatter-wrap {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 40px auto 0 auto;
+}
+
+/* Scattered card base styling */
+.scatter-plan-card {
+  position: absolute;
+  width: 320px;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 5px 15px rgba(0, 0, 0, 0.03);
+  border: 4px solid #fff; /* white border to make it pop like a photo or folder */
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s ease, z-index 0.2s ease;
+}
+
+/* Color palettes per card */
+.scatter-accent-red {
+  background-color: #FCEBEB;
+  border-color: #F87171;
+}
+.scatter-accent-blue {
+  background-color: #EFF6FF;
+  border-color: #60A5FA;
+}
+.scatter-accent-yellow {
+  background-color: #FEFCE8;
+  border-color: #FACC15;
+}
+.scatter-accent-green {
+  background-color: #ECFDF5;
+  border-color: #34D399;
+}
+.scatter-accent-orange {
+  background-color: #FFF7ED;
+  border-color: #FB923C;
+}
+
+/* Idle drift assignments (independent timers/delays) */
+.card-drift-1 {
+  animation: plan-float-1 5.5s ease-in-out infinite alternate;
+}
+.card-drift-2 {
+  animation: plan-float-2 6.8s ease-in-out infinite alternate;
+}
+.card-drift-3 {
+  animation: plan-float-3 4.9s ease-in-out infinite alternate;
+}
+.card-drift-4 {
+  animation: plan-float-4 7.2s ease-in-out infinite alternate;
+}
+.card-drift-5 {
+  animation: plan-float-5 5.9s ease-in-out infinite alternate;
+}
+
+/* Hover effects */
+.scatter-plan-card:hover {
+  transform: scale(1.08) !important; /* scale up and pause animation in JS */
+  box-shadow: 0 25px 50px rgba(78, 7, 11, 0.12);
+  z-index: 999 !important; /* raise z-index */
+}
+
+/* Inside card styling */
+.scatter-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.scatter-card-title {
+  font-family: NT Wagner Bold, var(--font-headings);
+  font-size: 1.4rem;
+  color: #4E070B;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.scatter-card-preview {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.scatter-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px dashed rgba(78, 7, 11, 0.1);
+  padding-top: 12px;
+}
+
+.scatter-card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scatter-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.scatter-card-delete-btn {
+  background: none;
+  border: none;
+  color: #EF4444;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  z-index: 20;
+}
+
+.scatter-card-delete-btn:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Position variables for scattered folders */
+.pos-1 { top: 10%; left: 8%; }
+.pos-2 { top: 5%; left: 42%; }
+.pos-3 { top: 8%; left: 72%; }
+.pos-4 { top: 48%; left: 22%; }
+.pos-5 { top: 45%; left: 58%; }
+
+/* Scattered Card Animations */
+@keyframes plan-float-1 {
+  0% { transform: translate(0, 0) rotate(-6deg); }
+  50% { transform: translate(6px, -8px) rotate(-4deg); }
+  100% { transform: translate(0, 0) rotate(-6deg); }
+}
+@keyframes plan-float-2 {
+  0% { transform: translate(0, 0) rotate(5deg); }
+  50% { transform: translate(-8px, 6px) rotate(7deg); }
+  100% { transform: translate(0, 0) rotate(5deg); }
+}
+@keyframes plan-float-3 {
+  0% { transform: translate(0, 0) rotate(-3deg); }
+  50% { transform: translate(7px, 7px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(-3deg); }
+}
+@keyframes plan-float-4 {
+  0% { transform: translate(0, 0) rotate(4deg); }
+  50% { transform: translate(-5px, -9px) rotate(2deg); }
+  100% { transform: translate(0, 0) rotate(4deg); }
+}
+@keyframes plan-float-5 {
+  0% { transform: translate(0, 0) rotate(-2deg); }
+  50% { transform: translate(9px, -6px) rotate(-4deg); }
+  100% { transform: translate(0, 0) rotate(-2deg); }
+}
+
+/* Background floating decorations */
+@keyframes decor-drift-1 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(15px, -15px) rotate(15deg) scale(1.05); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes decor-drift-2 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(-15px, 12px) rotate(-20deg) scale(0.95); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .card-drift-1, .card-drift-2, .card-drift-3, .card-drift-4, .card-drift-5 {
+    animation: none !important;
+  }
+  .decor-tomato, .decor-pepper, .decor-orange, .decor-leaf {
+    animation: none !important;
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 900px) {
+  .saved-plans-scatter-wrap {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .scatter-plan-card {
+    position: static !important; /* remove absolute placement */
+    width: 100%;
+    transform: rotate(0deg) !important; /* disable rotation on mobile */
+    animation: none !important; /* disable idle drifting to prevent taps misfire */
+  }
+  
+  .decor-ingredient {
+    display: none; /* hide floating decorations to prevent clutter */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SCROLL REVEAL ANIMATIONS SYSTEM
+   -------------------------------------------------------------------------- */
+.reveal-el {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Headings */
+.reveal-heading {
+  transform: translateY(25px);
+  transition-duration: 500ms;
+}
+
+/* Paragraphs / Body text */
+.reveal-text {
+  transform: translateY(20px);
+  transition-duration: 500ms;
+  transition-delay: 120ms;
+}
+
+/* Standalone Images */
+.reveal-img {
+  transform: translateY(60px);
+  transition-duration: 700ms;
+}
+
+/* Cards & Pills in grids */
+.reveal-card-item {
+  transform: translateY(30px);
+  transition-duration: 600ms;
+}
+
+/* Buttons / CTAs */
+.reveal-btn {
+  transform: none; /* fade in only, no slide */
+  transition-duration: 450ms;
+  transition-delay: 200ms;
+}
+
+/* Active states (after entering viewport) */
+.reveal-el.reveal-active {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Micro-animations and staggered delay helpers */
+.delay-1 { transition-delay: 80ms !important; }
+.delay-2 { transition-delay: 160ms !important; }
+.delay-3 { transition-delay: 240ms !important; }
+.delay-4 { transition-delay: 320ms !important; }
+.delay-5 { transition-delay: 400ms !important; }
+.delay-6 { transition-delay: 480ms !important; }
+.delay-7 { transition-delay: 560ms !important; }
+.delay-8 { transition-delay: 640ms !important; }
+
+/* Respect prefers-reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-el {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Premium Plan Switcher Dropdown Styling */
+#plan-switcher-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #FCF0E0; /* Cream background matching page */
+  border: 1.5px solid rgba(78, 7, 11, 0.15);
+  border-radius: 50px; /* Pill shape */
+  padding: 8px 36px 8px 16px;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: #4E070B;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234E070B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-sm);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#plan-switcher-select:hover {
+  border-color: var(--color-primary-orange);
+  box-shadow: 0 4px 12px rgba(246, 73, 8, 0.08);
+}
+
+/* Mobile Responsive Overrides for Planner & Modals */
+@media (max-width: 768px) {
+  .active-plan-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .active-plan-grid {
+    grid-template-columns: 1fr !important; /* Force single column on tiny screens */
+  }
+
+  .meal-plan-modal-content {
+    padding: 20px 16px !important;
+    width: 95% !important;
+    max-height: 95vh !important;
+  }
+
+  .modal-meal-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 14px !important;
+  }
+
+  .modal-meal-info {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .modal-meal-cals,
+  .modal-meal-cost {
+    margin-left: 0 !important;
+    display: inline-block !important;
+    margin-right: 8px !important;
+  }
+
+  .modal-meal-actions {
+    width: 100% !important;
+    justify-content: flex-end !important;
+    border-top: 1px dashed rgba(0,0,0,0.06) !important;
+    padding-top: 8px !important;
+  }
+
+  .duration-card {
+    padding: 16px !important;
+  }
+
+  .duration-card-badge {
+    top: 6px !important;
+    right: 6px !important;
+  }
+
+  /* Modal slider heights */
+  .step-container {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+  }
+}

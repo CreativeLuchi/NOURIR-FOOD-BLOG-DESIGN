@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js-active');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nourir - Healthy Nigerian Recipes</title>
@@ -9,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=1784561">
   
   <!-- Feather Icons for lightweight icons -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -41,11 +42,11 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#blog-callout">Articles <img src="Assets/fast-forward 2.png" alt="chevron" class="nav-chevron-img"></a>
+            <a href="#/articles">Articles <img src="Assets/fast-forward 2.png" alt="chevron" class="nav-chevron-img"></a>
             <ul class="dropdown-menu">
-              <li><a href="#blog-callout">Healthy Eating</a></li>
-              <li><a href="#blog-callout">Food Reviews</a></li>
-              <li><a href="#blog-callout">Ingredients Swaps</a></li>
+              <li><a href="#/articles/healthy-eating">Healthy Eating</a></li>
+              <li><a href="#/articles/food-reviews">Food Reviews</a></li>
+              <li><a href="#/articles/ingredient-swaps">Ingredients Swaps</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -55,16 +56,21 @@
               <li><a href="#footer">Contact Us</a></li>
               <li><a href="#footer">Newsletter</a></li>
             </ul>
+          <li class="mobile-cta-only">
+            <a href="#/meal-planner" class="btn btn-create-plan" style="width: 100%; justify-content: center; text-align: center; margin-top: 10px;">Create Meal Plan</a>
           </li>
         </ul>
         <div class="nav-actions">
-          <a href="#recipes" class="btn btn-create-plan">Create Meal Plan</a>
+          <a href="#/meal-planner" class="btn btn-create-plan">Create Meal Plan</a>
           <button class="icon-btn key-trigger" aria-label="API Key Settings" id="api-key-btn">
             <i data-feather="key"></i>
           </button>
           <button class="icon-btn search-trigger" aria-label="Search">
             <i data-feather="search"></i>
           </button>
+          <a href="#/saved-plans" class="icon-btn my-recipes-trigger" aria-label="My Recipes" id="my-recipes-btn" title="My Recipes & Meal Plan">
+            <i data-feather="heart"></i>
+          </a>
           <button class="menu-toggle twisted-menu" id="menu-toggle-btn" aria-label="Toggle Menu">
             <i data-feather="menu"></i>
           </button>
@@ -74,50 +80,105 @@
     <div class="nav-zigzag"></div>
   </header>
 
-  <!-- 2. HERO SECTION (Solid Orange Background, Grid Layout, White Button) -->
+  <!-- 2. HERO SECTION (Solid Cream Background, Centered Stack, Scrolling Marquee) -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <h1>Jollof. Suya. Efo. All of It<br>The Healthy Way</h1>
-        <p>Cook healthier versions of your favourite Nigerian meals using ingredients you can actually find and afford</p>
-        <div style="margin-top: 32px;">
-          <a href="#recipes" class="btn btn-hero-white">
-            View all recipes
-            <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
-          </a>
+    <!-- Scrolling background text -->
+    <div class="hero-marquee-container" aria-hidden="true">
+      <div class="hero-marquee-line">
+        <div class="hero-marquee-track left">
+          <span class="hero-marquee-text">Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp;</span>
+          <span class="hero-marquee-text">Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp;</span>
         </div>
       </div>
-      <div class="hero-image-container">
-        <img src="Assets/ChatGPT Image Jul 2, 2026, 06_58_03 PM.png" alt="Healthy Nigerian Food Spread" class="hero-collage-img">
+      <div class="hero-marquee-line">
+        <div class="hero-marquee-track right">
+          <span class="hero-marquee-text">Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp;</span>
+          <span class="hero-marquee-text">Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp;</span>
+        </div>
+      </div>
+      <div class="hero-marquee-line">
+        <div class="hero-marquee-track left">
+          <span class="hero-marquee-text">Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp;</span>
+          <span class="hero-marquee-text">Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp; Your favourite Naija meals, made to fit your budget &nbsp;•&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered single food image -->
+    <div class="hero-stack-container">
+      <img src="Assets/ChatGPT Image Jul 20, 2026, 02_24_54 PM.png" alt="Your favourite Naija meals, made to fit your budget" class="hero-single-img reveal-el reveal-img">
+    </div>
+
+    <!-- Visually hidden accessible content for screen readers/SEO -->
+    <div class="hero-accessible-content visually-hidden">
+      <h1>Your favourite Naija meals, made to fit your budget</h1>
+      <p>Cook healthier versions of your favourite Nigerian meals using ingredients you can actually find and afford</p>
+      <div style="margin-top: 32px;">
+        <a href="#recipes" class="btn btn-hero-white">
+          View all recipes
+          <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 3. ABOUT SECTION (Full Width, Split Layout) -->
-  <section class="about-section-full">
-    <div class="about-left-bg" style="background-image: url('Assets/ChatGPT Image Jun 14, 2026, 04_15_58 PM.png');"></div>
-    <div class="about-right-content">
-      <div class="about-text-wrapper">
-        <h2>Naija food.<br>But make it fit-fam!</h2>
-        <p>Welcome to Nourir where healthy eating doesn't mean abandoning your mother's kitchen, skipping the rice at owambe, or pretending you don't hear the pepper soup calling your name.</p>
-        <p style="margin-top: 16px;">No food shaming, no sad salads....</p>
-        <div style="margin-top: 32px;">
-          <a href="#recipes" class="btn btn-story-white">
-            Our story
-            <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
-          </a>
+  <!-- HORIZONTAL SCROLL CAROUSEL SECTION -->
+  <section class="horizontal-scroll-section" id="horizontal-scroll-track">
+    <div class="sticky-carousel-container" id="sticky-carousel-container">
+      <div class="carousel-cards-row" id="carousel-cards-row">
+        
+        <!-- CARD 1: Naija food. But make it fit-fam! -->
+        <div class="carousel-card card-green reveal-el reveal-card-item">
+          <div class="card-left-img" style="background-image: url('Assets/ChatGPT Image Jul 14, 2026, 12_22_03 PM.png');"></div>
+          <div class="card-right-content">
+            <div class="card-text-wrapper">
+              <h2 class="reveal-el reveal-heading">Naija food.<br>But make it fit-fam!</h2>
+              <p class="reveal-el reveal-text">Welcome to Nourir where healthy eating doesn't mean abandoning your mother's kitchen, skipping the rice at owambe, or pretending you don't hear the pepper soup calling your name.</p>
+              <p class="reveal-el reveal-text" style="margin-top: 16px;">No food shaming, no sad salads....</p>
+              <div style="margin-top: 32px;">
+                <a href="#recipes" class="btn btn-story-white reveal-el reveal-btn">
+                  Our story
+                  <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- CARD 2: Sapa cannot spoil your diet.... We budget too -->
+        <div class="carousel-card card-lightgreen reveal-el reveal-card-item">
+          <div class="card-left-img" style="background-image: url('Assets/ChatGPT Image Jun 14, 2026, 04_15_58 PM.png');"></div>
+          <div class="card-right-content">
+            <div class="card-text-wrapper flex-content">
+              <h2 class="reveal-el reveal-heading" style="color: #4E070B; font-size: clamp(3.2rem, 6.8vw, 4.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">Sapa cannot<br>spoil your diet....<br>We budget too</h2>
+              <img src="Assets/image 39.png" alt="Naira Notes" class="card-illustration reveal-el reveal-img" style="max-height: 540px; width: auto; object-fit: contain; margin-top: 15px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Can't find an ingredient? We'll swap it with Ingredients You Can Actually Find -->
+        <div class="carousel-card card-orange reveal-el reveal-card-item">
+          <div class="card-left-img" style="background-image: url('Assets/ChatGPT Image Jul 20, 2026, 04_42_45 PM.png');"></div>
+          <div class="card-right-content">
+            <div class="card-text-wrapper flex-content">
+              <h2 class="reveal-el reveal-heading" style="color: white; font-size: clamp(2.6rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">Can't find an ingredient?<br>We'll swap it with<br>Ingredients You Can<br>Actually Find</h2>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+
 
   <!-- 4. RECIPE GRID (12 Cards with correct metadata and images) -->
   <section id="recipes" class="recipes-section">
     <div class="section-header container centered-header">
-      <h2>Bring Recipes to Life</h2>
+      <h2 class="reveal-el reveal-heading">Bring Recipes to Life</h2>
       
       <div class="recipe-search-container">
-        <div class="recipe-search-box">
+        <div class="recipe-search-box reveal-el reveal-text">
           <input type="text" placeholder="Search recipes, categories..." class="recipe-search-input">
           <button class="recipe-search-icon" aria-label="Search">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -130,13 +191,14 @@
 
       <div class="categories-wrapper recipe-categories">
         <div class="categories-row">
-          <button class="category-tag yellow"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Soups & Stews</button>
-          <button class="category-tag light-peach"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Snacks & Drinks</button>
-          <button class="category-tag dark-burgundy"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Breakfast</button>
-          <button class="category-tag dark-green"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Protein & Grills</button>
-          <button class="category-tag orange"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Street Food</button>
-          <button class="category-tag light-green"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Rice Dishes</button>
-          <button class="category-tag dark"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Food Platter</button>
+          <button class="category-tag yellow reveal-el reveal-card-item delay-1" data-category="Soups & Stews"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Soups & Stews</button>
+          <button class="category-tag light-peach reveal-el reveal-card-item delay-2" data-category="Snacks & Drinks"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Snacks & Drinks</button>
+          <button class="category-tag dark-burgundy reveal-el reveal-card-item delay-3" data-category="Breakfast"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Breakfast</button>
+          <button class="category-tag dark-green reveal-el reveal-card-item delay-4" data-category="Protein & Grills"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Protein & Grills</button>
+          <button class="category-tag orange reveal-el reveal-card-item delay-5" data-category="Street Food"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Street Food</button>
+          <button class="category-tag light-green reveal-el reveal-card-item delay-6" data-category="Rice Dishes"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Rice Dishes</button>
+          <button class="category-tag dark reveal-el reveal-card-item delay-7" data-category="Food Platter"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Food Platter</button>
+          <button class="category-tag orange reveal-el reveal-card-item delay-8" data-category="Naija Remasters" style="border: 2px dashed var(--color-primary-orange);"><img src="Assets/ok-hand.png" alt="icon" class="tag-icon-img"> Naija Remasters</button>
         </div>
       </div>
     </div>
@@ -331,51 +393,13 @@
     </div>
   </section>
 
-  <!-- 5. FEATURE BENTO GRID -->
-  <section id="bento-features" class="bento-section">
-    <div class="custom-bento-grid">
-      <!-- Left Column -->
-      <div class="bento-col-left">
-        <!-- Tile 1 -->
-        <div class="bento-tile tile-1">
-          <h2>Sapa cannot spoil your diet. We budget too!</h2>
-          <img src="Assets/image 39.png" alt="budget" class="bento-notes-img">
-        </div>
-        <!-- Tile 3 -->
-        <div class="bento-tile tile-3">
-          <h2>Select Recipes to create a custom meal plan</h2>
-          <img src="Assets/image 10.png" alt="custom meal plan" class="bento-img-3">
-        </div>
-      </div>
-      
-      <!-- Right Column -->
-      <div class="bento-col-right">
-        <!-- Tile 2 -->
-        <div class="bento-tile tile-2">
-          <img src="Assets/tile 2.png" alt="healthy meal" class="full-bg-img">
-        </div>
-        <!-- Sub Row for Tile 4 and 5 -->
-        <div class="bento-sub-row">
-          <!-- Tile 4 -->
-          <div class="bento-tile tile-4">
-            <img src="Assets/video-square.png" alt="video icon" class="bento-icon-4">
-            <h2>Watch, eat, learn and bring recipes to life</h2>
-          </div>
-          <!-- Tile 5 -->
-          <div class="bento-tile tile-5">
-            <h2>Local ingredients swap tool</h2>
-            <img src="Assets/image 38.png" alt="swap tool" class="bento-img-5">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- 6. TODAY'S NOURIR SECTION (Full Width, Split Layout) -->
   <section class="todays-nourir-section-full">
     <div class="todays-nourir-left">
-      <h2 class="todays-nourir-title-outline">Today's Nourir</h2>
-      <div class="todays-nourir-card">
+      <h2 class="todays-nourir-title-outline reveal-el reveal-heading">Today's Nourir</h2>
+      <div class="todays-nourir-card reveal-el reveal-img">
         <img src="Assets/ChatGPT Image Jul 3, 2026, 10_36_16 PM.png" alt="Crunchy Suya Skewers" class="todays-nourir-card-img">
       </div>
     </div>
@@ -387,16 +411,16 @@
           <span class="meta-item"><i data-feather="bar-chart-2"></i> Flexitarian diet</span>
           <span class="meta-item save-meta-btn" style="cursor: pointer;"><i data-feather="plus-square"></i> save</span>
         </div>
-        <h3 class="todays-nourir-heading">Crunchy Suya Skewers</h3>
-        <p class="todays-nourir-desc">Perfect dish featuring roasted grilled beef skewers coated in Yaji (suya spice blend made from groundnuts, ginger, and paprika)</p>
+        <h3 class="todays-nourir-heading reveal-el reveal-heading">Crunchy Suya Skewers</h3>
+        <p class="todays-nourir-desc reveal-el reveal-text">Perfect dish featuring roasted grilled beef skewers coated in Yaji (suya spice blend made from groundnuts, ginger, and paprika)</p>
         <div class="todays-nourir-btn-wrapper">
-          <a href="#recipes" class="btn btn-dive-in">
+          <a href="#recipes" class="btn btn-dive-in reveal-el reveal-btn">
             Dive right in
             <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img">
           </a>
         </div>
         <div style="margin-top: 24px;">
-          <a href="#recipes" class="todays-nourir-all-link">View all recipes</a>
+          <a href="#recipes" class="todays-nourir-all-link reveal-el reveal-btn">View all recipes</a>
         </div>
       </div>
     </div>
@@ -406,12 +430,12 @@
   <section id="video-shows" class="shows-section">
     <div class="container">
       <div class="videos-header">
-        <h2>Watch. Cook. Chop</h2>
-        <a href="#video-shows" class="flex items-center gap-sm text-muted" style="font-weight: 600; text-decoration: underline;">View all shows <i data-feather="fast-forward" style="color: var(--color-primary-orange); width: 18px;"></i></a>
+        <h2 class="reveal-el reveal-heading">Watch. Cook. Chop</h2>
+        <a href="#video-shows" class="flex items-center gap-sm text-muted reveal-el reveal-btn" style="font-weight: 600; text-decoration: underline;">View all shows <i data-feather="fast-forward" style="color: var(--color-primary-orange); width: 18px;"></i></a>
       </div>
     </div>
     
-    <div class="marquee-container">
+    <div class="marquee-container reveal-el reveal-img">
       <div class="marquee-content">
         <!-- Card 1 -->
         <div class="video-card">
@@ -682,7 +706,7 @@
   <section id="blog-callout" class="blog-section">
     <div class="blog-container">
       <div class="blog-left">
-        <div class="collage-wrapper">
+        <div class="collage-wrapper reveal-el reveal-img">
           <div class="magazine-frame">
             <img src="Assets/ChatGPT Image Jul 5, 2026, 05_57_24 PM.png" alt="What's for Brunch? 7 Healthy Plantain Waffle Ideas" class="collage-main-img">
             <div class="food-review-badge">
@@ -693,11 +717,11 @@
       </div>
       <div class="blog-right">
         <div style="font-family: var(--font-body); font-weight: 700; color: var(--color-primary-orange); letter-spacing: 0.1em; text-transform: uppercase; font-size: 14px; margin-bottom: 12px;">Featured Article</div>
-        <h2>What's for Brunch? 7 Healthy Plantain Waffle Ideas You'll Want Every Weekend</h2>
-        <p>Gone are the days when eating "clean" meant saying goodbye to jollof rice, plantain, suya, moi moi or that extra spoon of stew your mum insisted you needed. Today, it's less about cutting out the foods we love and more about giving them a smarter, fresher twist.</p>
+        <h2 class="reveal-el reveal-heading">What's for Brunch? 7 Healthy Plantain Waffle Ideas You'll Want Every Weekend</h2>
+        <p class="reveal-el reveal-text">Gone are the days when eating "clean" meant saying goodbye to jollof rice, plantain, suya, moi moi or that extra spoon of stew your mum insisted you needed. Today, it's less about cutting out the foods we love and more about giving them a smarter, fresher twist.</p>
         <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
-          <a href="#blog-callout" class="btn btn-outline-dark" style="font-weight: 700; border-radius: 50px; padding: 12px 32px;">Read Article</a>
-          <a href="#blog-callout" style="color: var(--color-text-dark); text-decoration: underline; font-size: 14px; font-weight: 600; margin-left: 12px;">Read all articles <span class="arrow-icon">➔</span></a>
+          <a href="#/article/whats-for-brunch-7-healthy-plantain-waffle-ideas" class="btn btn-outline-dark reveal-el reveal-btn" style="font-weight: 700; border-radius: 50px; padding: 12px 32px;">Read Article</a>
+          <a href="#/articles" class="reveal-el reveal-btn" style="color: var(--color-text-dark); text-decoration: underline; font-size: 14px; font-weight: 600; margin-left: 12px;">Read all articles <span class="arrow-icon">➔</span></a>
         </div>
       </div>
     </div>
@@ -709,7 +733,7 @@
       
       <!-- Back to Home Link/Button -->
       <div class="back-to-home-wrapper">
-        <a href="#" class="back-home-btn"><span class="arrow-icon">⬅</span> Back to Recipes</a>
+        <a href="#" class="back-home-btn reveal-el reveal-btn"><span class="arrow-icon">⬅</span> Back to Recipes</a>
       </div>
 
       <!-- Loading Indicator -->
@@ -722,21 +746,21 @@
         <!-- Main Recipe Header -->
         <div class="recipe-detail-header-row">
           <div class="recipe-detail-header-left">
-            <div class="recipe-detail-meta" id="recipe-detail-meta-row">
+            <div class="recipe-detail-meta reveal-el reveal-text" id="recipe-detail-meta-row">
               <span class="meta-item"><span class="meta-icon">⏳</span> <span id="r-prep-cook-time">25 mins</span></span>
               <span class="meta-item"><span class="meta-icon">👥</span> <span id="r-serves">feeds 4</span></span>
               <span class="meta-item"><span class="meta-icon">🥗</span> <span id="r-diet">Mediterranean diet</span></span>
             </div>
-            <h1 class="recipe-detail-title" id="r-title">Golden Goodness: Healthy Whole Wheat Bread Recipe</h1>
-            <p class="recipe-detail-description" id="r-description">Fluffy, nutty, and perfect for your avocado toast or that late-night peanut butter craving.</p>
+            <h1 class="recipe-detail-title reveal-el reveal-heading" id="r-title">Golden Goodness: Healthy Whole Wheat Bread Recipe</h1>
+            <p class="recipe-detail-description reveal-el reveal-text" id="r-description">Fluffy, nutty, and perfect for your avocado toast or that late-night peanut butter craving.</p>
             <div class="recipe-detail-actions">
-              <button class="btn btn-save-recipe" id="r-save-btn">
-                Save Recipe <span class="arrow-icon">➔</span>
+              <button class="btn btn-save-recipe reveal-el reveal-btn" id="r-save-btn">
+                Save Recipe <img src="Assets/fast-forward.png" alt="arrow" class="btn-save-icon" style="width: 16px; height: 16px; margin-left: 8px; filter: brightness(0) invert(1);">
               </button>
             </div>
           </div>
           <div class="recipe-detail-header-right">
-            <img src="Assets/image 38.png" alt="Chef illustration" class="recipe-detail-chef-img">
+            <!-- Chef illustration removed -->
           </div>
         </div>
 
@@ -744,21 +768,21 @@
         <div class="recipe-detail-main-row">
           <!-- Left side: Image -->
           <div class="recipe-detail-img-col">
-            <div class="recipe-detail-img-wrapper">
+            <div class="recipe-detail-img-wrapper reveal-el reveal-img">
               <img src="Assets/tile 2.png" alt="Recipe Image" id="r-image" class="recipe-detail-main-img">
               <div class="recipe-detail-badge-tag" id="r-badge-tag">Plant Based</div>
             </div>
           </div>
 
-          <!-- Right side: Ingredients card -->
-          <div class="recipe-detail-ingredients-card" id="r-ingredients-container">
+          <!-- Right side: Ingredients card (Placed beside the food image) -->
+          <div class="recipe-detail-ingredients-card reveal-el reveal-card-item" id="r-ingredients-container">
             <!-- Will be populated dynamically -->
           </div>
         </div>
 
         <!-- Instructions Section -->
         <div class="recipe-detail-instructions-section">
-          <h2 class="instructions-section-heading" id="r-instructions-heading">Instructions – Let's Bake!</h2>
+          <h2 class="instructions-section-heading reveal-el reveal-heading" id="r-instructions-heading">Instructions – Let's Bake!</h2>
           <div class="instructions-list" id="r-instructions-list">
             <!-- Will be populated dynamically -->
           </div>
@@ -766,13 +790,152 @@
         
         <!-- More Like This Slider -->
         <div class="more-like-this-section">
-          <h2>More like this</h2>
+          <h2 class="reveal-el reveal-heading">More like this</h2>
           <div class="more-like-this-grid" id="r-more-like-this-grid">
             <!-- Prepopulated fallback cards -->
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- MEAL PLANNER SECTION (Hidden by default) -->
+  <section id="meal-planner-section" class="meal-planner-section" style="display: none;">
+    <div class="active-plan-section">
+      <div class="container">
+
+
+        <div class="active-plan-header">
+          <h1 class="active-plan-title reveal-el reveal-heading" id="active-plan-title-heading">Tastebud cravings meal plan</h1>
+          <div class="active-plan-actions" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <a href="#/saved-plans" class="btn btn-outline reveal-el reveal-btn" style="border-radius: 50px; padding: 12px 24px; text-decoration: none; font-weight: 600; background: white; color: #4E070B; border: 1.5px solid rgba(78, 7, 11, 0.15); font-size: 14px;">
+              View Saved Plans
+            </a>
+            <button class="btn btn-primary btn-create-plan reveal-el reveal-btn" style="background-color: #4E070B !important; color: white !important; font-weight: 700; border-radius: 50px; padding: 12px 28px; border: none; cursor: pointer;">
+              Create New Plan
+            </button>
+          </div>
+        </div>
+
+        <div class="active-plan-grid" id="active-plan-grid-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+    <div class="saved-recipes-page-section">
+      <div class="container">
+        <h2 class="saved-recipes-page-title reveal-el reveal-heading">Saved Recipes</h2>
+        <div class="saved-recipes-page-grid" id="saved-recipes-grid-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVED PLANS SECTION (Hidden by default) -->
+  <section id="saved-plans-section" class="saved-plans-page-section" style="display: none;">
+    <div class="saved-plans-decorations" aria-hidden="true" style="pointer-events: none;">
+      <!-- Floating ingredient PNGs positioned absolutely behind cards -->
+      <!-- Tomato -->
+      <img src="Assets/image 48.png" class="decor-ingredient decor-tomato" alt="Tomato" style="pointer-events: none; position: absolute; width: 45px; height: auto; opacity: 0.25;">
+      <!-- Pepper -->
+      <img src="Assets/image 47.png" class="decor-ingredient decor-pepper" alt="Pepper" style="pointer-events: none; position: absolute; width: 50px; height: auto; opacity: 0.25;">
+      <!-- Orange -->
+      <img src="Assets/image 46.png" class="decor-ingredient decor-orange" alt="Orange" style="pointer-events: none; position: absolute; width: 45px; height: auto; opacity: 0.25;">
+      <!-- Plantain Leaf -->
+      <img src="Assets/image 50.png" class="decor-ingredient decor-leaf" alt="Leaf" style="pointer-events: none; position: absolute; width: 55px; height: auto; opacity: 0.25;">
+    </div>
+    
+    <div class="container saved-plans-container" style="position: relative; z-index: 10;">
+      <!-- Header row inside plans page -->
+      <div class="saved-plans-page-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <h1 class="saved-plans-page-title reveal-el reveal-heading" style="font-family: NT Wagner Bold, var(--font-headings); font-size: clamp(2rem, 4.5vw, 3rem); color: #4E070B; margin: 0 0 8px 0; font-weight: 700;">My Saved Meal Plans</h1>
+          <p class="saved-plans-page-desc reveal-el reveal-text" style="color: #7d7d7d; margin: 0; font-size: 1rem;">Your collection of custom budget-saver plans. Tap to load details.</p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <a href="#/meal-planner" class="btn btn-outline reveal-el reveal-btn" style="border-radius: 50px; padding: 12px 24px; text-decoration: none; font-weight: 600; background: white; color: #4E070B; border: 1.5px solid rgba(78, 7, 11, 0.15); font-size: 14px;">
+            Back to Active Plan
+          </a>
+          <button class="btn btn-primary btn-create-plan reveal-el reveal-btn" style="background-color: #F64908 !important; color: white !important; font-weight: 700; border-radius: 50px; padding: 12px 28px; border: none; cursor: pointer;">
+            Create New Plan
+          </button>
+        </div>
+      </div>
+
+      <!-- Scattered wrapper -->
+      <div class="saved-plans-scatter-wrap" id="saved-plans-scatter-wrap" style="position: relative; width: 100%; min-height: 520px; margin-top: 20px;">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES LIST VIEW SECTION (Hidden by default) -->
+  <section id="articles-section" class="articles-section" style="display: none;">
+    <div class="articles-container container">
+      <!-- Back Link -->
+      <div class="back-to-home-wrapper">
+        <a href="#" class="back-home-btn reveal-el reveal-btn"><span class="arrow-icon">⬅</span> Back to Home</a>
+      </div>
+      
+      <div class="section-header centered-header" style="margin-bottom: 30px;">
+        <h2 class="reveal-el reveal-heading" style="font-family: NT Wagner Bold, var(--font-headings); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--color-primary-green); margin-bottom: 10px;">Nourir Reads</h2>
+        <p class="subtitle reveal-el reveal-text" style="font-size: 1.15rem; color: var(--color-muted-grey); max-width: 600px; margin: 0 auto;">Fresh takes on Nigerian food, healthy living guides, and kitchen wisdom.</p>
+      </div>
+
+      <!-- Category Filter Pills for Articles -->
+      <div class="articles-categories-container">
+        <div class="articles-category-pills">
+          <button class="articles-cat-pill active reveal-el reveal-card-item delay-1" data-category="all">All Articles</button>
+          <button class="articles-cat-pill reveal-el reveal-card-item delay-2" data-category="Healthy Eating">Healthy Eating</button>
+          <button class="articles-cat-pill reveal-el reveal-card-item delay-3" data-category="Ingredient Swaps">Ingredient Swaps</button>
+          <button class="articles-cat-pill reveal-el reveal-card-item delay-4" data-category="Food Reviews">Food Reviews</button>
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="articles-grid" id="articles-grid-container">
+        <!-- Will be populated dynamically in index.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE READ VIEW SECTION (Hidden by default) -->
+  <section id="article-read-section" class="article-read-section" style="display: none;">
+    <div class="article-read-container container">
+      
+      <!-- Back Link -->
+      <div class="back-to-home-wrapper" style="margin-bottom: 30px;">
+        <a href="#/articles" class="back-home-btn reveal-el reveal-btn"><span class="arrow-icon">⬅</span> Back to Articles</a>
+      </div>
+
+      <div id="article-read-content">
+        <header class="article-read-header">
+          <div class="article-read-meta reveal-el reveal-text">
+            <span class="meta-item" id="art-read-category" style="background-color: #FCF0E0; color: #4E070B; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; font-family: var(--font-body);">Healthy Eating</span>
+            <span class="meta-item">⏳ <span id="art-read-readtime">5 min read</span></span>
+            <span class="meta-item">📅 <span id="art-read-date">July 5, 2026</span></span>
+          </div>
+          <h1 class="article-read-title reveal-el reveal-heading" id="art-read-title" style="font-family: NT Wagner Bold, var(--font-headings); color: var(--color-primary-green); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px;">Article Title</h1>
+          
+          <div class="article-read-author-row reveal-el reveal-text">
+            <div class="article-author-avatar" id="art-read-avatar">YO</div>
+            <div class="article-author-info">
+              <h4 id="art-read-author">Author Name</h4>
+              <p>Nourir Contributor & Expert</p>
+            </div>
+          </div>
+        </header>
+
+        <img src="" alt="Article image" class="article-read-hero-image reveal-el reveal-img" id="art-read-image">
+
+        <div class="article-read-body reveal-el reveal-text" id="art-read-body">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -793,7 +956,9 @@
           <div class="nav-col">
             <a href="#video-shows" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Shows</a>
             <a href="#recipes" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Recipes</a>
-            <a href="#blog-callout" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Articles</a>
+            <a href="#/meal-planner" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Active Meal Plan</a>
+            <a href="#/saved-plans" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Saved Meal Plans</a>
+            <a href="#/articles" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Articles</a>
           </div>
           <div class="nav-col">
             <a href="#about" style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--color-primary-orange);">➔</span> Our Story</a>
@@ -827,6 +992,226 @@
     </div>
   </div>
 
-  <script src="index.js"></script>
+  <!-- Create Meal Plan Multi-Step Modal -->
+  <div id="create-meal-plan-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-plan-title">
+    <div class="modal-content meal-plan-modal-content">
+      <button class="modal-close-btn" id="plan-modal-close-btn" aria-label="Close modal">&times;</button>
+      
+      <!-- Progress Indicator -->
+      <div class="modal-progress-container">
+        <div class="modal-progress-bar">
+          <div class="modal-progress-fill" id="modal-plan-progress-fill" style="width: 20%;"></div>
+        </div>
+        <div class="modal-progress-steps">
+          <span class="step-dot active" data-step-dot="1">1</span>
+          <span class="step-dot" data-step-dot="2">2</span>
+          <span class="step-dot" data-step-dot="3">3</span>
+          <span class="step-dot" data-step-dot="4">4</span>
+          <span class="step-dot" data-step-dot="5">5</span>
+        </div>
+      </div>
+      
+      <!-- Encouraging Microcopy (Toast/Hint style) -->
+      <div class="modal-encouraging-hint" id="modal-plan-encouraging-hint" style="opacity: 0; pointer-events: none;">
+        Almost there!
+      </div>
+
+      <!-- Steps Horizontal Slider Wrapper -->
+      <div class="modal-steps-slider-wrapper">
+        <div class="modal-steps-slider" id="modal-plan-slider">
+          
+          <!-- STEP 1: Plan Duration -->
+          <div class="step-container active-fade" data-step="1">
+            <h2 class="step-title">Choose Plan Duration</h2>
+            <p class="step-desc">Select whether you would like to plan your meals for a week or a full month.</p>
+            <div class="duration-cards-group">
+              <div class="duration-card" data-duration="weekly" role="button" tabindex="0">
+                <div class="duration-card-badge">7 Days</div>
+                <div class="duration-card-icon">📅</div>
+                <h3>Weekly Plan</h3>
+                <p>Plan meals from Monday to Sunday. Ideal for fresh food prep and routine grocery shopping.</p>
+              </div>
+              <div class="duration-card" data-duration="monthly" role="button" tabindex="0">
+                <div class="duration-card-badge">30 Days</div>
+                <div class="duration-card-icon">🗓️</div>
+                <h3>Monthly Plan</h3>
+                <p>Plan a whole month of recipes. Best for bulk purchasing, long-term budgeting, and structural meal prep.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- STEP 2: Budget Target -->
+          <div class="step-container" data-step="2">
+            <h2 class="step-title">Set Your Budget Target</h2>
+            <p class="step-desc">Establish a budget limit. We will suggest Naira-Saver recipes to keep you within limits.</p>
+            <div class="plan-name-input-container" style="width: 100%; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; text-align: left;">
+              <label for="modal-plan-name-input" style="font-size: 12px; font-weight: 700; color: var(--color-text-dark);">Name your Meal Plan:</label>
+              <input type="text" id="modal-plan-name-input" placeholder="e.g. Tastebud cravings meal plan" style="width: 100%; border-radius: 50px; padding: 12px 20px; border: 1.5px solid rgba(0,0,0,0.1); outline: none; font-size: 14px;">
+            </div>
+            <div class="budget-selectors-wrapper">
+              <div class="budget-pill-group" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; width: 100%;">
+                <button class="budget-pill" data-modal-budget="10000">₦10,000</button>
+                <button class="budget-pill" data-modal-budget="20000">₦20,000</button>
+                <button class="budget-pill" data-modal-budget="30000">₦30,000</button>
+                <button class="budget-pill" data-modal-budget="50000">₦50,000</button>
+              </div>
+              <div class="custom-budget-input-container">
+                <label for="modal-custom-budget-val">Or enter custom limit:</label>
+                <div class="custom-budget-input-wrapper">
+                  <span>₦</span>
+                  <input type="number" id="modal-custom-budget-val" placeholder="Custom" min="1000">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- STEP 3: Preferences -->
+          <div class="step-container" data-step="3">
+            <h2 class="step-title">Select Preferences</h2>
+            <p class="step-desc">Customize your planner rules (optional). These settings can be updated at any time.</p>
+            <div class="preferences-toggles-list">
+              <div class="pref-item">
+                <div class="pref-text">
+                  <h3>Local Ingredient Swap</h3>
+                  <p>Auto-recommend Nigerian substitutes for foreign ingredients (e.g. Ugu for Kale) to save costs.</p>
+                </div>
+                <label class="pref-switch">
+                  <input type="checkbox" id="pref-local-swap" checked>
+                  <span class="pref-slider"></span>
+                </label>
+              </div>
+              <div class="pref-item">
+                <div class="pref-text">
+                  <h3>Show Calorie Intake</h3>
+                  <p>Display daily calorie summaries next to budget targets for balanced eating.</p>
+                </div>
+                <label class="pref-switch">
+                  <input type="checkbox" id="pref-show-calories" checked>
+                  <span class="pref-slider"></span>
+                </label>
+              </div>
+              <div class="pref-item">
+                <div class="pref-text">
+                  <h3>Auto-Generate Meal Plan</h3>
+                  <p>Instantly generate a complete budget-optimized plan in the next step.</p>
+                </div>
+                <label class="pref-switch">
+                  <input type="checkbox" id="pref-auto-gen" checked>
+                  <span class="pref-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- STEP 4: Build / Review Meals -->
+          <div class="step-container" data-step="4">
+            <h2 class="step-title" id="modal-step-4-title">Review Plan</h2>
+            <p class="step-desc" id="modal-step-4-desc">Review your auto-generated plan, swap out recipes, or add custom dishes.</p>
+            
+            <div class="meals-list-workspace">
+              <!-- Dynamic meal rows or manual add interface populated by JS -->
+            </div>
+          </div>
+          
+          <!-- STEP 5: Confirm & Create -->
+          <div class="step-container" data-step="5">
+            <h2 class="step-title">Confirm & Create Plan</h2>
+            <p class="step-desc">Review your selections and launch your custom plan.</p>
+            <div class="confirm-summary-card">
+              <div class="summary-row">
+                <span class="summary-label">Plan Name:</span>
+                <span class="summary-value" id="summary-name-val">-</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Plan Duration:</span>
+                <span class="summary-value" id="summary-duration-val">-</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Target Budget:</span>
+                <span class="summary-value" id="summary-budget-val">-</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Ingredient Swaps:</span>
+                <span class="summary-value" id="summary-swap-val">-</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Show Calories:</span>
+                <span class="summary-value" id="summary-cals-val">-</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Auto-Generated:</span>
+                <span class="summary-value" id="summary-autogen-val">-</span>
+              </div>
+              <div class="summary-row summary-total-row">
+                <span class="summary-label">Planned Meals:</span>
+                <span class="summary-value" id="summary-meals-val">-</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <!-- Modal Navigation Footer -->
+      <div class="modal-nav-footer">
+        <button class="btn btn-outline" id="plan-btn-back">Back</button>
+        <button class="btn btn-primary" id="plan-btn-next">Next</button>
+      </div>
+
+      <!-- In-Modal Reveal Animation Container -->
+      <div id="modal-reveal-container" class="modal-reveal-container" style="display: none;">
+        <h2 class="reveal-title" style="margin-bottom: 20px; font-family: var(--font-headings); color: var(--color-primary-green);">Meal Plan Created!</h2>
+        
+        <!-- Basket Anchor Element -->
+        <div class="reveal-basket-wrapper" style="margin-bottom: 20px;">
+          <svg class="reveal-basket" width="130" height="100" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Basket Handle -->
+            <path d="M40 50C40 25 50 10 80 10C110 10 120 25 120 50" stroke="#004810" stroke-width="8" stroke-linecap="round" fill="none" />
+            <!-- Basket Base -->
+            <path d="M20 50H140L125 110H35L20 50Z" fill="#FCF0E0" stroke="#004810" stroke-width="8" stroke-linejoin="round" />
+            <!-- Basket Weave lines -->
+            <line x1="45" y1="50" x2="55" y2="110" stroke="#004810" stroke-width="4" />
+            <line x1="80" y1="50" x2="80" y2="110" stroke="#004810" stroke-width="4" />
+            <line x1="115" y1="50" x2="105" y2="110" stroke="#004810" stroke-width="4" />
+            <line x1="25" y1="75" x2="135" y2="75" stroke="#004810" stroke-width="4" />
+            <line x1="30" y1="95" x2="130" y2="95" stroke="#004810" stroke-width="4" />
+          </svg>
+          <div class="basket-shadow" style="width: 100px;"></div>
+        </div>
+        
+        <!-- Floating Items Area -->
+        <div class="reveal-items-container" id="reveal-items-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 50;">
+          <!-- Animated food pills added dynamically -->
+        </div>
+        
+        <!-- Settle view and CTA -->
+        <div class="reveal-settle-view" id="reveal-settle-view" style="display: none; opacity: 0; z-index: 100; width: 100%;">
+          <div class="settle-summary" style="margin-bottom: 20px; text-align: center;">
+            <h3 style="font-family: var(--font-headings); color: var(--color-primary-green); font-size: 1.25rem; margin-bottom: 6px;">Your Naira-Saver plan is ready</h3>
+            <p style="font-size: 0.95rem; color: var(--color-text-body);">Estimated Weekly Cost: <strong id="reveal-cost-val" style="color: var(--color-primary-orange);">₦0</strong></p>
+          </div>
+          <button class="btn btn-primary" id="reveal-btn-view-plan" style="background-color: var(--color-primary-orange) !important; color: white !important; border-radius: 50px; padding: 12px 32px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; box-shadow: var(--shadow-sm); width: 100%; max-width: 280px; margin: 0 auto;">
+            View Full Plan
+            <img src="Assets/fast-forward.png" alt="arrow" class="btn-arrow-img" style="width: 16px; height: 16px; object-fit: contain;">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Discard Confirmation Dialog -->
+  <div id="plan-discard-confirm" class="modal-overlay plan-submodal-overlay" style="display: none; z-index: 2100;">
+    <div class="modal-content plan-confirm-content">
+      <h3>Save Progress?</h3>
+      <p>You have an in-progress meal plan. Would you like to save your progress for later or discard it?</p>
+      <div class="confirm-actions">
+        <button class="btn btn-outline" id="confirm-discard-btn">Discard Progress</button>
+        <button class="btn btn-primary" id="confirm-save-btn">Save Progress</button>
+        <button class="btn btn-clear" id="confirm-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js?v=1784561"></script>
 </body>
 </html>
